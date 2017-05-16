@@ -44,7 +44,7 @@ import java.util.Set;
 import static org.hamcrest.Matchers.*;
 
 /**
- * Simple smoke test for {@link org.elasticsearch.index.codec.postingsformat.Elasticsearch090PostingsFormat}
+ * Simple smoke test for {@link org.elasticsearch.legacy.index.codec.postingsformat.Elasticsearch090PostingsFormat}
  */
 public class DefaultPostingsFormatTests extends ElasticsearchTestCase {
 

@@ -13,8 +13,8 @@ The body of the search request is built using the
 --------------------------------------------------
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.search.SearchType;
-import org.elasticsearch.index.query.FilterBuilders.*;
-import org.elasticsearch.index.query.QueryBuilders.*;
+import org.elasticsearch.legacy.index.query.FilterBuilders.*;
+import org.elasticsearch.legacy.index.query.QueryBuilders.*;
 --------------------------------------------------
 
 [source,java]
@@ -50,8 +50,8 @@ first!
 
 [source,java]
 --------------------------------------------------
-import static org.elasticsearch.index.query.FilterBuilders.*;
-import static org.elasticsearch.index.query.QueryBuilders.*;
+import static org.elasticsearch.legacy.index.query.FilterBuilders.*;
+import static org.elasticsearch.legacy.index.query.QueryBuilders.*;
 
 QueryBuilder qb = termQuery("multi", "test");
 

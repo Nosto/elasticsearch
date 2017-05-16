@@ -40,7 +40,7 @@ public class GatewayModule extends AbstractModule implements SpawnModules {
 
     @Override
     public Iterable<? extends Module> spawnModules() {
-        return ImmutableList.of(Modules.createModule(settings.getAsClass("gateway.type", LocalGatewayModule.class, "org.elasticsearch.gateway.", "GatewayModule"), settings));
+        return ImmutableList.of(Modules.createModule(settings.getAsClass("gateway.type", LocalGatewayModule.class, "org.elasticsearch.legacy.gateway.", "GatewayModule"), settings));
     }
 
     @Override

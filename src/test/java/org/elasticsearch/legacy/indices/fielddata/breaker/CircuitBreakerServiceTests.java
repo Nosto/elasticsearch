@@ -53,7 +53,7 @@ public class CircuitBreakerServiceTests extends ElasticsearchIntegrationTest {
     }
 
     @Test
-    @TestLogging("org.elasticsearch.legacy.indices.fielddata.breaker:TRACE,org.elasticsearch.index.fielddata:TRACE,org.elasticsearch.legacy.common.breaker:TRACE")
+    @TestLogging("org.elasticsearch.legacy.indices.fielddata.breaker:TRACE,org.elasticsearch.legacy.index.fielddata:TRACE,org.elasticsearch.legacy.common.breaker:TRACE")
     public void testMemoryBreaker() {
         assertAcked(prepareCreate("cb-test", 1, settingsBuilder().put(SETTING_NUMBER_OF_REPLICAS, between(0, 1))));
         final Client client = client();
@@ -107,7 +107,7 @@ public class CircuitBreakerServiceTests extends ElasticsearchIntegrationTest {
     }
 
     @Test
-    @TestLogging("org.elasticsearch.legacy.indices.fielddata.breaker:TRACE,org.elasticsearch.index.fielddata:TRACE,org.elasticsearch.legacy.common.breaker:TRACE")
+    @TestLogging("org.elasticsearch.legacy.indices.fielddata.breaker:TRACE,org.elasticsearch.legacy.index.fielddata:TRACE,org.elasticsearch.legacy.common.breaker:TRACE")
     public void testRamAccountingTermsEnum() {
         final Client client = client();
 

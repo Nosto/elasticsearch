@@ -97,7 +97,7 @@ public class ImmutableSettingsTests extends ElasticsearchTestCase {
     public void testThatAllClassNotFoundExceptionsAreCaught() {
         // this should be nGram in order to really work, but for sure not not throw a NoClassDefFoundError
         Settings settings = settingsBuilder().put("type", "ngram").build();
-        settings.getAsClass("type", null, "org.elasticsearch.index.analysis.", "TokenFilterFactory");
+        settings.getAsClass("type", null, "org.elasticsearch.legacy.index.analysis.", "TokenFilterFactory");
     }
 
     @Test

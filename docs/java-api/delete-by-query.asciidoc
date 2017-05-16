@@ -7,8 +7,8 @@ is an example:
 
 [source,java]
 --------------------------------------------------
-import static org.elasticsearch.index.query.FilterBuilders.*;
-import static org.elasticsearch.index.query.QueryBuilders.*;
+import static org.elasticsearch.legacy.index.query.FilterBuilders.*;
+import static org.elasticsearch.legacy.index.query.QueryBuilders.*;
 
 DeleteByQueryResponse response = client.prepareDeleteByQuery("test")
         .setQuery(termQuery("_type", "type1"))

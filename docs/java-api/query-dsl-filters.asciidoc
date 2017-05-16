@@ -13,7 +13,7 @@ To use `FilterBuilders` just import them in your class:
 
 [source,java]
 --------------------------------------------------
-import org.elasticsearch.index.query.FilterBuilders.*;
+import org.elasticsearch.legacy.index.query.FilterBuilders.*;
 --------------------------------------------------
 
 Note that you can easily print (aka debug) JSON generated queries using

@@ -38,7 +38,7 @@ import static org.elasticsearch.legacy.common.settings.ImmutableSettings.Builder
 import static org.hamcrest.Matchers.equalTo;
 
 /**
- * A set of tests for {@link org.elasticsearch.index.deletionpolicy.SnapshotDeletionPolicy}.
+ * A set of tests for {@link org.elasticsearch.legacy.index.deletionpolicy.SnapshotDeletionPolicy}.
  */
 public class SnapshotDeletionPolicyTests extends ElasticsearchTestCase {
 

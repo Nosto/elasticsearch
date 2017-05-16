@@ -71,7 +71,7 @@ curl -XGET 'http://localhost:9200/twitter/tweet/_validate/query?q=post_date:foo&
   "explanations" : [ {
     "index" : "twitter",
     "valid" : false,
-    "error" : "org.elasticsearch.index.query.QueryParsingException: [twitter] Failed to parse; org.elasticsearch.ElasticsearchParseException: failed to parse date field [foo], tried both date format [dateOptionalTime], and timestamp number; java.lang.IllegalArgumentException: Invalid format: \"foo\""
+    "error" : "org.elasticsearch.legacy.index.query.QueryParsingException: [twitter] Failed to parse; org.elasticsearch.ElasticsearchParseException: failed to parse date field [foo], tried both date format [dateOptionalTime], and timestamp number; java.lang.IllegalArgumentException: Invalid format: \"foo\""
   } ]
 }
 --------------------------------------------------

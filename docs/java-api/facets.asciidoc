@@ -23,7 +23,7 @@ in your class:
 
 [source,java]
 --------------------------------------------------
-import org.elasticsearch.search.facet.FacetBuilders.*;
+import org.elasticsearch.legacy.search.facet.FacetBuilders.*;
 --------------------------------------------------
 
 
@@ -56,7 +56,7 @@ Import Facet definition classes:
 
 [source,java]
 --------------------------------------------------
-import org.elasticsearch.search.facet.terms.*;
+import org.elasticsearch.legacy.search.facet.terms.*;
 --------------------------------------------------
 
 [source,java]
@@ -104,7 +104,7 @@ Import Facet definition classes:
 
 [source,java]
 --------------------------------------------------
-import org.elasticsearch.search.facet.range.*;
+import org.elasticsearch.legacy.search.facet.range.*;
 --------------------------------------------------
 
 [source,java]
@@ -151,7 +151,7 @@ Import Facet definition classes:
 
 [source,java]
 --------------------------------------------------
-import org.elasticsearch.search.facet.histogram.*;
+import org.elasticsearch.legacy.search.facet.histogram.*;
 --------------------------------------------------
 
 [source,java]
@@ -194,7 +194,7 @@ Import Facet definition classes:
 
 [source,java]
 --------------------------------------------------
-import org.elasticsearch.search.facet.datehistogram.*;
+import org.elasticsearch.legacy.search.facet.datehistogram.*;
 --------------------------------------------------
 
 [source,java]
@@ -241,7 +241,7 @@ Import Facet definition classes:
 
 [source,java]
 --------------------------------------------------
-import org.elasticsearch.search.facet.filter.*;
+import org.elasticsearch.legacy.search.facet.filter.*;
 --------------------------------------------------
 
 [source,java]
@@ -278,7 +278,7 @@ Import Facet definition classes:
 
 [source,java]
 --------------------------------------------------
-import org.elasticsearch.search.facet.query.*;
+import org.elasticsearch.legacy.search.facet.query.*;
 --------------------------------------------------
 
 [source,java]
@@ -318,7 +318,7 @@ Import Facet definition classes:
 
 [source,java]
 --------------------------------------------------
-import org.elasticsearch.search.facet.statistical.*;
+import org.elasticsearch.legacy.search.facet.statistical.*;
 --------------------------------------------------
 
 [source,java]
@@ -363,7 +363,7 @@ Import Facet definition classes:
 
 [source,java]
 --------------------------------------------------
-import org.elasticsearch.search.facet.termsstats.*;
+import org.elasticsearch.legacy.search.facet.termsstats.*;
 --------------------------------------------------
 
 [source,java]
@@ -417,7 +417,7 @@ Import Facet definition classes:
 
 [source,java]
 --------------------------------------------------
-import org.elasticsearch.search.facet.geodistance.*;
+import org.elasticsearch.legacy.search.facet.geodistance.*;
 --------------------------------------------------
 
 [source,java]
