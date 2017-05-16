@@ -35,8 +35,8 @@ import org.elasticsearch.legacy.test.ElasticsearchIntegrationTest;
 import org.elasticsearch.legacy.test.junit.annotations.TestLogging;
 import org.junit.Test;
 
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertHitCount;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertHitCount;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.lessThan;

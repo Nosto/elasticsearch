@@ -25,8 +25,8 @@ import org.junit.Before;
 
 import static org.apache.lucene.util.LuceneTestCase.Slow;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.ClusterScope;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.Scope;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.ClusterScope;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.Scope;
 
 /**
  */

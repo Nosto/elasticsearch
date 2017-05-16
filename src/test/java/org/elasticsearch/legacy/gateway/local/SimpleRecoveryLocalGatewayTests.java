@@ -41,14 +41,14 @@ import org.elasticsearch.legacy.test.InternalTestCluster.RestartCallback;
 import org.elasticsearch.legacy.test.store.MockDirectoryHelper;
 import org.junit.Test;
 
-import static org.elasticsearch.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_REPLICAS;
-import static org.elasticsearch.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_SHARDS;
+import static org.elasticsearch.legacy.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_REPLICAS;
+import static org.elasticsearch.legacy.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_SHARDS;
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.matchAllQuery;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.termQuery;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.Scope;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertHitCount;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.Scope;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertHitCount;
 import static org.hamcrest.Matchers.*;
 
 /**

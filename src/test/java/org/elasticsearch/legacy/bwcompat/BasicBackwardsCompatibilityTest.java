@@ -60,8 +60,8 @@ import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuild
 import static org.elasticsearch.legacy.index.query.FilterBuilders.existsFilter;
 import static org.elasticsearch.legacy.index.query.FilterBuilders.missingFilter;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.*;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertHitCount;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertHitCount;
 import static org.hamcrest.Matchers.*;
 
 /**

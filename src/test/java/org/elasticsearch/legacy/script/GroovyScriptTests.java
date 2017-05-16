@@ -31,7 +31,7 @@ import java.util.List;
 import static com.google.common.collect.Lists.newArrayList;
 import static org.elasticsearch.legacy.index.query.FilterBuilders.scriptFilter;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.constantScoreQuery;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertNoFailures;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertNoFailures;
 import static org.hamcrest.Matchers.equalTo;
 
 /**

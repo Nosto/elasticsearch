@@ -127,7 +127,7 @@ public class PutIndexTemplateRequest extends MasterNodeOperationRequest<PutIndex
 
     /**
      * Set to <tt>true</tt> to force only creation, not an update of an index template. If it already
-     * exists, it will fail with an {@link org.elasticsearch.indices.IndexTemplateAlreadyExistsException}.
+     * exists, it will fail with an {@link org.elasticsearch.legacy.indices.IndexTemplateAlreadyExistsException}.
      */
     public PutIndexTemplateRequest create(boolean create) {
         this.create = create;

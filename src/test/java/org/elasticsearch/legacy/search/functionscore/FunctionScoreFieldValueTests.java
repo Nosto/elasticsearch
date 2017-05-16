@@ -30,7 +30,7 @@ import java.io.IOException;
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.*;
 import static org.elasticsearch.legacy.index.query.functionscore.ScoreFunctionBuilders.fieldValueFactorFunction;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.*;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.*;
 
 /**
  * Tests for the {@code field_value_factor} function in a function_score query.

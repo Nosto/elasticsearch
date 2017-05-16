@@ -46,7 +46,7 @@ import java.util.List;
 import java.util.Set;
 
 import static org.elasticsearch.legacy.index.query.QueryBuilders.termQuery;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.*;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.*;
 import static org.hamcrest.Matchers.*;
 
 /**

@@ -35,9 +35,9 @@ import org.elasticsearch.legacy.test.ElasticsearchIntegrationTest;
 import org.junit.Test;
 
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.ClusterScope;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.Scope.TEST;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.ClusterScope;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.Scope.TEST;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
 import static org.hamcrest.Matchers.equalTo;
 
 @ClusterScope(scope = TEST)

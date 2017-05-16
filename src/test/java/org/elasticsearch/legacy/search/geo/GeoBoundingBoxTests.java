@@ -29,7 +29,7 @@ import org.junit.Test;
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
 import static org.elasticsearch.legacy.index.query.FilterBuilders.geoBoundingBoxFilter;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.*;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
 import static org.hamcrest.Matchers.anyOf;
 import static org.hamcrest.Matchers.equalTo;
 

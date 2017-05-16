@@ -59,8 +59,8 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAllFilesClosed;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAllSearchersClosed;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAllFilesClosed;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAllSearchersClosed;
 
 /**
  * Base testcase for randomized unit testing with Elasticsearch

@@ -37,8 +37,8 @@ import org.elasticsearch.legacy.test.ElasticsearchAllocationTestCase;
 import org.elasticsearch.legacy.test.junit.annotations.TestLogging;
 import org.junit.Test;
 
-import static org.elasticsearch.cluster.routing.ShardRoutingState.INITIALIZING;
-import static org.elasticsearch.cluster.routing.allocation.RoutingNodesUtils.numberOfShardsOfType;
+import static org.elasticsearch.legacy.cluster.routing.ShardRoutingState.INITIALIZING;
+import static org.elasticsearch.legacy.cluster.routing.allocation.RoutingNodesUtils.numberOfShardsOfType;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -60,7 +60,7 @@ public class SameShardRoutingTests extends ElasticsearchAllocationTestCase {
         RoutingTable routingTable = RoutingTable.builder()
                 .addAsNew(metaData.index("test"))
                 .build();
-        ClusterState clusterState = ClusterState.builder(org.elasticsearch.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
+        ClusterState clusterState = ClusterState.builder(org.elasticsearch.legacy.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
 
         logger.info("--> adding two nodes with the same host");
         clusterState = ClusterState.builder(clusterState).nodes(DiscoveryNodes.builder()

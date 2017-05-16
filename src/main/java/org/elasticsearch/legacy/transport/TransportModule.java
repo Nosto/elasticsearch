@@ -51,12 +51,12 @@ public class TransportModule extends AbstractModule implements SpawnModules {
         } else {
             defaultTransportModule = NettyTransportModule.class;
         }
-        return ImmutableList.of(Modules.createModule(settings.getAsClass(TRANSPORT_TYPE_KEY, defaultTransportModule, "org.elasticsearch.transport.", "TransportModule"), settings));
+        return ImmutableList.of(Modules.createModule(settings.getAsClass(TRANSPORT_TYPE_KEY, defaultTransportModule, "org.elasticsearch.legacy.transport.", "TransportModule"), settings));
     }
 
     @Override
     protected void configure() {
-        Class<? extends TransportService> transportService = settings.getAsClass(TRANSPORT_SERVICE_TYPE_KEY, TransportService.class, "org.elasticsearch.transport.", "TransportService");
+        Class<? extends TransportService> transportService = settings.getAsClass(TRANSPORT_SERVICE_TYPE_KEY, TransportService.class, "org.elasticsearch.legacy.transport.", "TransportService");
         if (!TransportService.class.equals(transportService)) {
             bind(TransportService.class).to(transportService).asEagerSingleton();
         } else {

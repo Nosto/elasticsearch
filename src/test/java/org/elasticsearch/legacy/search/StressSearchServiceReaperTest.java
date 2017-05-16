@@ -32,9 +32,9 @@ import org.junit.Test;
 import java.util.concurrent.ExecutionException;
 
 import static org.elasticsearch.legacy.index.query.QueryBuilders.matchAllQuery;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.Scope.SUITE;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertHitCount;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertNoFailures;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.Scope.SUITE;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertHitCount;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertNoFailures;
 
 @ClusterScope(scope = SUITE)
 public class StressSearchServiceReaperTest extends ElasticsearchIntegrationTest {

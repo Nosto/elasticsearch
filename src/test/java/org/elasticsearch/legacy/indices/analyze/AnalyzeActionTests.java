@@ -29,7 +29,7 @@ import org.junit.Test;
 import java.io.IOException;
 
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;

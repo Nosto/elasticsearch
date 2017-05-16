@@ -35,9 +35,9 @@ import java.io.IOException;
 import static org.elasticsearch.legacy.action.percolate.PercolateSourceBuilder.docBuilder;
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.*;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.*;
-import static org.elasticsearch.percolator.PercolatorTests.convertFromTextArray;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertMatchCount;
+import static org.elasticsearch.legacy.percolator.PercolatorTests.convertFromTextArray;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertMatchCount;
 import static org.hamcrest.Matchers.*;
 
 /**

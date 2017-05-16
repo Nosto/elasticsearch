@@ -31,8 +31,8 @@ import java.io.IOException;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.matchAllQuery;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertHitCount;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertHitCount;
 import static org.hamcrest.Matchers.equalTo;
 
 public class UpdateNumberOfReplicasTests extends ElasticsearchIntegrationTest {

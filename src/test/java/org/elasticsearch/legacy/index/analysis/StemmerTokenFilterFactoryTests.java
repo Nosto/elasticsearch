@@ -33,7 +33,7 @@ import java.io.IOException;
 import java.io.StringReader;
 
 import static com.carrotsearch.randomizedtesting.RandomizedTest.scaledRandomIntBetween;
-import static org.elasticsearch.cluster.metadata.IndexMetaData.SETTING_VERSION_CREATED;
+import static org.elasticsearch.legacy.cluster.metadata.IndexMetaData.SETTING_VERSION_CREATED;
 import static org.hamcrest.Matchers.instanceOf;
 
 /**

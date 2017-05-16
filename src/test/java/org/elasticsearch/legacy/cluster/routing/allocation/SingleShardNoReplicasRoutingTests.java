@@ -38,8 +38,8 @@ import java.util.Set;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Sets.newHashSet;
-import static org.elasticsearch.cluster.routing.ShardRoutingState.*;
-import static org.elasticsearch.cluster.routing.allocation.RoutingNodesUtils.numberOfShardsOfType;
+import static org.elasticsearch.legacy.cluster.routing.ShardRoutingState.*;
+import static org.elasticsearch.legacy.cluster.routing.allocation.RoutingNodesUtils.numberOfShardsOfType;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
 import static org.hamcrest.Matchers.*;
 
@@ -64,7 +64,7 @@ public class SingleShardNoReplicasRoutingTests extends ElasticsearchAllocationTe
                 .addAsNew(metaData.index("test"))
                 .build();
 
-        ClusterState clusterState = ClusterState.builder(org.elasticsearch.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
+        ClusterState clusterState = ClusterState.builder(org.elasticsearch.legacy.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
 
         assertThat(routingTable.index("test").shards().size(), equalTo(1));
         assertThat(routingTable.index("test").shard(0).size(), equalTo(1));
@@ -166,7 +166,7 @@ public class SingleShardNoReplicasRoutingTests extends ElasticsearchAllocationTe
                 .addAsNew(metaData.index("test"))
                 .build();
 
-        ClusterState clusterState = ClusterState.builder(org.elasticsearch.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
+        ClusterState clusterState = ClusterState.builder(org.elasticsearch.legacy.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
 
         assertThat(routingTable.index("test").shards().size(), equalTo(1));
         assertThat(routingTable.index("test").shard(0).size(), equalTo(1));
@@ -224,7 +224,7 @@ public class SingleShardNoReplicasRoutingTests extends ElasticsearchAllocationTe
             routingTableBuilder.addAsNew(metaData.index("test" + i));
         }
         RoutingTable routingTable = routingTableBuilder.build();
-        ClusterState clusterState = ClusterState.builder(org.elasticsearch.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
+        ClusterState clusterState = ClusterState.builder(org.elasticsearch.legacy.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
 
         assertThat(routingTable.indicesRouting().size(), equalTo(numberOfIndices));
         for (int i = 0; i < numberOfIndices; i++) {
@@ -338,7 +338,7 @@ public class SingleShardNoReplicasRoutingTests extends ElasticsearchAllocationTe
         }
         RoutingTable routingTable = routingTableBuilder.build();
 
-        ClusterState clusterState = ClusterState.builder(org.elasticsearch.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
+        ClusterState clusterState = ClusterState.builder(org.elasticsearch.legacy.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
 
         assertThat(routingTable.indicesRouting().size(), equalTo(numberOfIndices));
 

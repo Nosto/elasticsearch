@@ -30,9 +30,9 @@ import org.elasticsearch.legacy.script.ScriptService;
 import org.elasticsearch.legacy.test.ElasticsearchIntegrationTest;
 import org.junit.Test;
 
-import static org.elasticsearch.cluster.metadata.AliasAction.newAddAliasAction;
+import static org.elasticsearch.legacy.cluster.metadata.AliasAction.newAddAliasAction;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.matchAllQuery;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.instanceOf;
 

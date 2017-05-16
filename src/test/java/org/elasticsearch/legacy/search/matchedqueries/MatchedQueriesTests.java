@@ -26,7 +26,7 @@ import org.junit.Test;
 
 import static org.elasticsearch.legacy.index.query.FilterBuilders.*;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.*;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertHitCount;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertHitCount;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItemInArray;
 

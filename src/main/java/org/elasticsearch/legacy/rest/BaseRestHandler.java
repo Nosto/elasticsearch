@@ -37,7 +37,7 @@ public abstract class BaseRestHandler extends AbstractComponent implements RestH
 
     /**
      * Controls which REST headers get copied over from a {@link org.elasticsearch.legacy.rest.RestRequest} to
-     * its corresponding {@link org.elasticsearch.transport.TransportRequest}(s).
+     * its corresponding {@link org.elasticsearch.legacy.transport.TransportRequest}(s).
      *
      * By default no headers get copied but it is possible to extend this behaviour via plugins by calling this method.
      */

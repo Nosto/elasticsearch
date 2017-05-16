@@ -40,7 +40,7 @@ import java.lang.reflect.Constructor;
 import java.util.*;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static org.elasticsearch.cluster.routing.ShardRoutingState.INITIALIZING;
+import static org.elasticsearch.legacy.cluster.routing.ShardRoutingState.INITIALIZING;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 

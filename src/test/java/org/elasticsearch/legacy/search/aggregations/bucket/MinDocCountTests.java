@@ -44,7 +44,7 @@ import java.util.regex.Pattern;
 
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
 import static org.elasticsearch.legacy.search.aggregations.AggregationBuilders.*;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAllSuccessful;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAllSuccessful;
 
 
 @ElasticsearchIntegrationTest.SuiteScopeTest

@@ -41,12 +41,12 @@ import org.junit.Test;
 
 import java.util.Set;
 
-import static org.elasticsearch.client.Requests.*;
-import static org.elasticsearch.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_REPLICAS;
-import static org.elasticsearch.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_SHARDS;
-import static org.elasticsearch.cluster.routing.ShardRoutingState.*;
+import static org.elasticsearch.legacy.client.Requests.*;
+import static org.elasticsearch.legacy.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_REPLICAS;
+import static org.elasticsearch.legacy.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_SHARDS;
+import static org.elasticsearch.legacy.cluster.routing.ShardRoutingState.*;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.*;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.*;
 import static org.hamcrest.Matchers.*;
 
 

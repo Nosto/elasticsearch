@@ -37,7 +37,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
 import static org.hamcrest.Matchers.equalTo;
 
 public class GetTermVectorCheckDocFreqTests extends ElasticsearchIntegrationTest {

@@ -47,7 +47,7 @@ import org.junit.Test;
 
 import java.util.Locale;
 
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
 import static org.hamcrest.Matchers.*;
 
 public class SimpleIndicesWarmerTests extends ElasticsearchIntegrationTest {

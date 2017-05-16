@@ -30,8 +30,8 @@ import org.elasticsearch.legacy.common.logging.Loggers;
 import org.elasticsearch.legacy.test.ElasticsearchAllocationTestCase;
 import org.junit.Test;
 
-import static org.elasticsearch.cluster.routing.ShardRoutingState.INITIALIZING;
-import static org.elasticsearch.cluster.routing.ShardRoutingState.STARTED;
+import static org.elasticsearch.legacy.cluster.routing.ShardRoutingState.INITIALIZING;
+import static org.elasticsearch.legacy.cluster.routing.ShardRoutingState.STARTED;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -60,7 +60,7 @@ public class PrimaryNotRelocatedWhileBeingRecoveredTests extends ElasticsearchAl
                 .addAsNew(metaData.index("test"))
                 .build();
 
-        ClusterState clusterState = ClusterState.builder(org.elasticsearch.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
+        ClusterState clusterState = ClusterState.builder(org.elasticsearch.legacy.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
 
         logger.info("Adding two nodes and performing rerouting");
         clusterState = ClusterState.builder(clusterState).nodes(DiscoveryNodes.builder().put(newNode("node1"))).build();

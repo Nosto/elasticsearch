@@ -761,7 +761,7 @@ public class IndicesClusterStateService extends AbstractLifecycleComponent<Indic
 
     /**
      * Finds the routing source node for peer recovery, return null if its not found. Note, this method expects the shard
-     * routing to *require* peer recovery, use {@link #isPeerRecovery(org.elasticsearch.cluster.routing.ShardRouting)} to
+     * routing to *require* peer recovery, use {@link #isPeerRecovery(org.elasticsearch.legacy.cluster.routing.ShardRouting)} to
      * check if its needed or not.
      */
     private DiscoveryNode findSourceNodeForPeerRecovery(RoutingTable routingTable, DiscoveryNodes nodes, ShardRouting shardRouting) {

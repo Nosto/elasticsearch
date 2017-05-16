@@ -44,7 +44,7 @@ import java.security.SecureRandom;
 import java.util.*;
 import java.util.Map.Entry;
 
-import static org.elasticsearch.client.Requests.searchRequest;
+import static org.elasticsearch.legacy.client.Requests.searchRequest;
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.functionScoreQuery;
 import static org.elasticsearch.legacy.index.query.functionscore.ScoreFunctionBuilders.scriptFunction;

@@ -45,15 +45,15 @@ import java.io.IOException;
 import java.util.Set;
 
 import static org.elasticsearch.legacy.action.search.SearchType.*;
-import static org.elasticsearch.client.Requests.*;
-import static org.elasticsearch.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_SHARDS;
+import static org.elasticsearch.legacy.client.Requests.*;
+import static org.elasticsearch.legacy.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_SHARDS;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
 import static org.elasticsearch.legacy.common.unit.TimeValue.timeValueMinutes;
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.matchAllQuery;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.termQuery;
 import static org.elasticsearch.legacy.search.builder.SearchSourceBuilder.searchSource;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertNoFailures;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertNoFailures;
 import static org.hamcrest.Matchers.*;
 
 /**

@@ -37,7 +37,7 @@ import org.junit.Test;
 import java.util.HashMap;
 
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.Scope;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.Scope;
 import static org.hamcrest.Matchers.*;
 
 /**

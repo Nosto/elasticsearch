@@ -24,7 +24,7 @@ import org.elasticsearch.legacy.test.ElasticsearchIntegrationTest;
 import org.junit.Test;
 
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
 import static org.hamcrest.Matchers.greaterThan;
 
 /**

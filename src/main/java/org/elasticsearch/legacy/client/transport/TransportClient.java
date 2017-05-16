@@ -91,7 +91,7 @@ import static org.elasticsearch.legacy.common.settings.ImmutableSettings.setting
  * The transport client allows to create a client that is not part of the cluster, but simply connects to one
  * or more nodes directly by adding their respective addresses using {@link #addTransportAddress(org.elasticsearch.legacy.common.transport.TransportAddress)}.
  * <p/>
- * <p>The transport client important modules used is the {@link org.elasticsearch.transport.TransportModule} which is
+ * <p>The transport client important modules used is the {@link org.elasticsearch.legacy.transport.TransportModule} which is
  * started in client mode (only connects, no bind).
  */
 public class TransportClient extends AbstractClient {

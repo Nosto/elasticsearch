@@ -54,7 +54,7 @@ public class ClusterStateRequestBuilder extends MasterNodeReadOperationRequestBu
     }
 
     /**
-     * Should the cluster state result include the {@link org.elasticsearch.cluster.metadata.MetaData}. Defaults
+     * Should the cluster state result include the {@link org.elasticsearch.legacy.cluster.metadata.MetaData}. Defaults
      * to <tt>true</tt>.
      */
     public ClusterStateRequestBuilder setMetaData(boolean filter) {
@@ -63,7 +63,7 @@ public class ClusterStateRequestBuilder extends MasterNodeReadOperationRequestBu
     }
 
     /**
-     * Should the cluster state result include the {@link org.elasticsearch.cluster.node.DiscoveryNodes}. Defaults
+     * Should the cluster state result include the {@link org.elasticsearch.legacy.cluster.node.DiscoveryNodes}. Defaults
      * to <tt>true</tt>.
      */
     public ClusterStateRequestBuilder setNodes(boolean filter) {
@@ -72,7 +72,7 @@ public class ClusterStateRequestBuilder extends MasterNodeReadOperationRequestBu
     }
 
     /**
-     * Should the cluster state result include teh {@link org.elasticsearch.cluster.routing.RoutingTable}. Defaults
+     * Should the cluster state result include teh {@link org.elasticsearch.legacy.cluster.routing.RoutingTable}. Defaults
      * to <tt>true</tt>.
      */
     public ClusterStateRequestBuilder setRoutingTable(boolean filter) {
@@ -81,7 +81,7 @@ public class ClusterStateRequestBuilder extends MasterNodeReadOperationRequestBu
     }
 
     /**
-     * When {@link #setMetaData(boolean)} is set, which indices to return the {@link org.elasticsearch.cluster.metadata.IndexMetaData}
+     * When {@link #setMetaData(boolean)} is set, which indices to return the {@link org.elasticsearch.legacy.cluster.metadata.IndexMetaData}
      * for. Defaults to all indices.
      */
     public ClusterStateRequestBuilder setIndices(String... indices) {

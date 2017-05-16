@@ -27,10 +27,10 @@ import org.elasticsearch.legacy.test.ElasticsearchIntegrationTest;
 import org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.ClusterScope;
 import org.junit.Test;
 
-import static org.elasticsearch.client.Requests.createIndexRequest;
+import static org.elasticsearch.legacy.client.Requests.createIndexRequest;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
 import static org.elasticsearch.legacy.common.unit.TimeValue.timeValueSeconds;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.*;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.*;
 import static org.hamcrest.Matchers.equalTo;
 
 /**

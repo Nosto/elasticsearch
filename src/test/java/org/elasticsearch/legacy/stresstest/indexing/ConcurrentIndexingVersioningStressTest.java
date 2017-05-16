@@ -30,7 +30,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
-import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
+import static org.elasticsearch.legacy.node.NodeBuilder.nodeBuilder;
 
 /**
  * Checks that index operation does not create duplicate documents.

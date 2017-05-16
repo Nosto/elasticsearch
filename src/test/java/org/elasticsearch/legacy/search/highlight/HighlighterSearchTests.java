@@ -45,7 +45,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.elasticsearch.client.Requests.searchRequest;
+import static org.elasticsearch.legacy.client.Requests.searchRequest;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
 import static org.elasticsearch.legacy.index.query.FilterBuilders.missingFilter;
@@ -53,8 +53,8 @@ import static org.elasticsearch.legacy.index.query.FilterBuilders.typeFilter;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.*;
 import static org.elasticsearch.legacy.search.builder.SearchSourceBuilder.highlight;
 import static org.elasticsearch.legacy.search.builder.SearchSourceBuilder.searchSource;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.*;
-import static org.elasticsearch.test.hamcrest.RegexMatcher.matches;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.*;
+import static org.elasticsearch.legacy.test.hamcrest.RegexMatcher.matches;
 import static org.hamcrest.Matchers.*;
 
 /**

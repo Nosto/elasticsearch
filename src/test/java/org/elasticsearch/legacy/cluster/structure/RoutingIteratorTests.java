@@ -36,7 +36,7 @@ import org.elasticsearch.legacy.index.shard.ShardId;
 import org.elasticsearch.legacy.test.ElasticsearchAllocationTestCase;
 import org.junit.Test;
 
-import static org.elasticsearch.cluster.routing.ShardRoutingState.INITIALIZING;
+import static org.elasticsearch.legacy.cluster.routing.ShardRoutingState.INITIALIZING;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
 import static org.hamcrest.Matchers.*;
 

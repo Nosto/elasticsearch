@@ -34,7 +34,7 @@ import java.io.IOException;
 
 import static org.elasticsearch.legacy.index.query.QueryBuilders.matchAllQuery;
 import static org.elasticsearch.legacy.search.facet.FacetBuilders.termsFacet;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
 
 public class FieldDataFilterIntegrationTests extends ElasticsearchIntegrationTest {
 

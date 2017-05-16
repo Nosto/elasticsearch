@@ -28,9 +28,9 @@ import org.elasticsearch.legacy.test.ElasticsearchIntegrationTest;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.ClusterScope;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.Scope.TEST;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.ClusterScope;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.Scope.TEST;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
 import static org.hamcrest.Matchers.*;
 
 @ClusterScope(scope = TEST)

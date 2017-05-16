@@ -35,10 +35,10 @@ import org.junit.runner.notification.RunListener;
 
 import static com.carrotsearch.randomizedtesting.SysGlobals.SYSPROP_ITERATIONS;
 import static com.carrotsearch.randomizedtesting.SysGlobals.SYSPROP_TESTMETHOD;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.TESTS_CLUSTER;
-import static org.elasticsearch.test.rest.ElasticsearchRestTests.REST_TESTS_BLACKLIST;
-import static org.elasticsearch.test.rest.ElasticsearchRestTests.REST_TESTS_SPEC;
-import static org.elasticsearch.test.rest.ElasticsearchRestTests.REST_TESTS_SUITE;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.TESTS_CLUSTER;
+import static org.elasticsearch.legacy.test.rest.ElasticsearchRestTests.REST_TESTS_BLACKLIST;
+import static org.elasticsearch.legacy.test.rest.ElasticsearchRestTests.REST_TESTS_SPEC;
+import static org.elasticsearch.legacy.test.rest.ElasticsearchRestTests.REST_TESTS_SUITE;
 
 
 /**

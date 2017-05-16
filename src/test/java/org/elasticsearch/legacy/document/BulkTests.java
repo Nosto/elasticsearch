@@ -44,7 +44,7 @@ import java.util.ArrayList;
 import java.util.concurrent.CyclicBarrier;
 
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.*;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.*;
 import static org.hamcrest.Matchers.*;
 
 public class BulkTests extends ElasticsearchIntegrationTest {

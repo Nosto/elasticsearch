@@ -76,7 +76,7 @@ import static org.elasticsearch.legacy.index.query.FilterBuilders.*;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.*;
 import static org.elasticsearch.legacy.index.query.RegexpFlag.*;
 import static org.elasticsearch.legacy.index.query.functionscore.ScoreFunctionBuilders.factorFunction;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertBooleanSubQuery;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertBooleanSubQuery;
 import static org.hamcrest.Matchers.*;
 
 /**

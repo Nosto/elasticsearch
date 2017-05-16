@@ -44,15 +44,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static org.elasticsearch.legacy.action.percolate.PercolateSourceBuilder.docBuilder;
-import static org.elasticsearch.client.Requests.clusterHealthRequest;
+import static org.elasticsearch.legacy.client.Requests.clusterHealthRequest;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.builder;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.*;
-import static org.elasticsearch.percolator.PercolatorTests.convertFromTextArray;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.ClusterScope;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.Scope;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.*;
+import static org.elasticsearch.legacy.percolator.PercolatorTests.convertFromTextArray;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.ClusterScope;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.Scope;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.*;
 import static org.hamcrest.Matchers.*;
 
 @ClusterScope(scope = Scope.TEST, numDataNodes = 0, numClientNodes = 0, transportClientRatio = 0)

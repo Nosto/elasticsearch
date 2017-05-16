@@ -32,7 +32,7 @@ import org.junit.Test;
 
 import java.lang.reflect.Field;
 
-import static org.elasticsearch.indices.analysis.HunspellService.*;
+import static org.elasticsearch.legacy.indices.analysis.HunspellService.*;
 import static org.hamcrest.Matchers.notNullValue;
 
 /**

@@ -33,7 +33,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.*;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.*;
 import static org.hamcrest.Matchers.is;
 
 @ClusterScope(scope = Scope.SUITE, numDataNodes = 1, numClientNodes = 0)

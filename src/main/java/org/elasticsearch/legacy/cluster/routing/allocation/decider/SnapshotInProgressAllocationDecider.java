@@ -29,7 +29,7 @@ import org.elasticsearch.legacy.common.settings.Settings;
 import org.elasticsearch.legacy.node.settings.NodeSettingsService;
 
 /**
- * This {@link org.elasticsearch.cluster.routing.allocation.decider.AllocationDecider} prevents shards that
+ * This {@link org.elasticsearch.legacy.cluster.routing.allocation.decider.AllocationDecider} prevents shards that
  * are currently been snapshotted to be moved to other nodes.
  */
 public class SnapshotInProgressAllocationDecider extends AllocationDecider {
@@ -55,14 +55,14 @@ public class SnapshotInProgressAllocationDecider extends AllocationDecider {
     private volatile boolean enableRelocation = false;
 
     /**
-     * Creates a new {@link org.elasticsearch.cluster.routing.allocation.decider.SnapshotInProgressAllocationDecider} instance
+     * Creates a new {@link org.elasticsearch.legacy.cluster.routing.allocation.decider.SnapshotInProgressAllocationDecider} instance
      */
     public SnapshotInProgressAllocationDecider() {
         this(ImmutableSettings.Builder.EMPTY_SETTINGS);
     }
 
     /**
-     * Creates a new {@link org.elasticsearch.cluster.routing.allocation.decider.SnapshotInProgressAllocationDecider} instance from given settings
+     * Creates a new {@link org.elasticsearch.legacy.cluster.routing.allocation.decider.SnapshotInProgressAllocationDecider} instance from given settings
      *
      * @param settings {@link org.elasticsearch.legacy.common.settings.Settings} to use
      */

@@ -43,9 +43,9 @@ import org.junit.Test;
 import java.io.File;
 import java.util.Arrays;
 
-import static org.elasticsearch.client.Requests.createIndexRequest;
+import static org.elasticsearch.legacy.client.Requests.createIndexRequest;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.Scope;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.Scope;
 import static org.hamcrest.Matchers.equalTo;
 
 /**

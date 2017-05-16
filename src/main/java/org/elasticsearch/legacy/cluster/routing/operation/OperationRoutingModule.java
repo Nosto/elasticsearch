@@ -43,11 +43,11 @@ public class OperationRoutingModule extends AbstractModule implements SpawnModul
 
     @Override
     public Iterable<? extends Module> spawnModules() {
-        return ImmutableList.of(createModule(settings.getAsClass("cluster.routing.operation.type", PlainOperationRoutingModule.class, "org.elasticsearch.cluster.routing.operation.", "OperationRoutingModule"), settings));
+        return ImmutableList.of(createModule(settings.getAsClass("cluster.routing.operation.type", PlainOperationRoutingModule.class, "org.elasticsearch.legacy.cluster.routing.operation.", "OperationRoutingModule"), settings));
     }
 
     @Override
     protected void configure() {
-        bind(HashFunction.class).to(settings.getAsClass("cluster.routing.operation.hash.type", DjbHashFunction.class, "org.elasticsearch.cluster.routing.operation.hash.", "HashFunction")).asEagerSingleton();
+        bind(HashFunction.class).to(settings.getAsClass("cluster.routing.operation.hash.type", DjbHashFunction.class, "org.elasticsearch.legacy.cluster.routing.operation.hash.", "HashFunction")).asEagerSingleton();
     }
 }

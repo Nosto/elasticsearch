@@ -25,7 +25,7 @@ import org.elasticsearch.legacy.action.search.SearchResponse;
 import org.elasticsearch.legacy.test.ElasticsearchIntegrationTest;
 import org.junit.Test;
 
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertNoFailures;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertNoFailures;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 /**

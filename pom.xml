@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <name>elasticsearch</name>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.elasticsearch.legacy</groupId>
-    <artifactId>elasticsearch</artifactId>
+    <groupId>org.elasticsearch</groupId>
+    <artifactId>elasticsearch-legacy</artifactId>
     <version>1.3.4</version>
     <packaging>jar</packaging>
     <description>Elasticsearch - Open Source, Distributed, RESTful Search Engine</description>

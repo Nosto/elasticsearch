@@ -36,10 +36,10 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-import static org.elasticsearch.client.Requests.*;
+import static org.elasticsearch.legacy.client.Requests.*;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
 import static org.hamcrest.Matchers.*;
 
 public class TransportSearchFailuresTests extends ElasticsearchIntegrationTest {

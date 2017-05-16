@@ -27,11 +27,10 @@ import java.io.*;
 import java.util.Arrays;
 
 import static org.elasticsearch.legacy.common.io.Streams.*;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 /**
- * Unit tests for {@link org.elasticsearch.common.io.Streams}.
+ * Unit tests for {@link org.elasticsearch.legacy.common.io.Streams}.
  */
 public class StreamsTests extends ElasticsearchTestCase {
 

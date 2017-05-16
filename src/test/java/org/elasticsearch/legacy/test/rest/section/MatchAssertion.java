@@ -23,7 +23,7 @@ import org.elasticsearch.legacy.common.logging.Loggers;
 
 import java.util.regex.Pattern;
 
-import static org.elasticsearch.test.hamcrest.RegexMatcher.matches;
+import static org.elasticsearch.legacy.test.hamcrest.RegexMatcher.matches;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertThat;

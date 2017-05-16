@@ -28,7 +28,7 @@ import java.io.IOException;
 
 import static org.elasticsearch.legacy.common.io.Streams.copyToStringFromClasspath;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.matchAllQuery;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertSearchResponse;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertSearchResponse;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.instanceOf;
 

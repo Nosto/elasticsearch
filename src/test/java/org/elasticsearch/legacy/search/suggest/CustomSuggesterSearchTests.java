@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Locale;
 
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.*;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.*;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 

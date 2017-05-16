@@ -38,7 +38,7 @@ import java.lang.reflect.Field;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertHitCount;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertHitCount;
 
 /**
  */
@@ -48,7 +48,7 @@ public class DirectBufferNetworkTests extends ElasticsearchIntegrationTest {
      * This test validates that using large data sets (large docs + large API requests) don't
      * cause a large direct byte buffer to be allocated internally in the sun.nio buffer cache.
      * <p/>
-     * See {@link org.elasticsearch.common.netty.NettyUtils#DEFAULT_GATHERING} for more info.
+     * See {@link org.elasticsearch.legacy.common.netty.NettyUtils#DEFAULT_GATHERING} for more info.
      */
     @Test
     public void verifySaneDirectBufferAllocations() throws Exception {

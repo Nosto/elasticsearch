@@ -21,8 +21,8 @@ package org.elasticsearch.legacy.test.rest.test;
 import org.elasticsearch.legacy.test.ElasticsearchTestCase;
 import org.junit.Test;
 
-import static org.elasticsearch.test.rest.support.VersionUtils.parseVersionNumber;
-import static org.elasticsearch.test.rest.support.VersionUtils.skipCurrentVersion;
+import static org.elasticsearch.legacy.test.rest.support.VersionUtils.parseVersionNumber;
+import static org.elasticsearch.legacy.test.rest.support.VersionUtils.skipCurrentVersion;
 import static org.hamcrest.Matchers.*;
 
 public class VersionUtilsTests extends ElasticsearchTestCase {

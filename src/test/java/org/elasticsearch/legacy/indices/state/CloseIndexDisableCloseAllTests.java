@@ -30,8 +30,8 @@ import org.elasticsearch.legacy.test.ElasticsearchIntegrationTest;
 import org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.ClusterScope;
 import org.junit.Test;
 
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.*;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.*;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 

@@ -24,12 +24,12 @@ import org.elasticsearch.legacy.action.search.SearchType;
 import org.elasticsearch.legacy.test.ElasticsearchIntegrationTest;
 import org.junit.Test;
 
-import static org.elasticsearch.client.Requests.indexRequest;
-import static org.elasticsearch.client.Requests.searchRequest;
+import static org.elasticsearch.legacy.client.Requests.indexRequest;
+import static org.elasticsearch.legacy.client.Requests.searchRequest;
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.termQuery;
 import static org.elasticsearch.legacy.search.builder.SearchSourceBuilder.searchSource;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertHitCount;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertHitCount;
 import static org.hamcrest.Matchers.equalTo;
 
 /**

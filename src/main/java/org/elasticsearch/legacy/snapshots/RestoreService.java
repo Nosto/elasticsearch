@@ -70,8 +70,8 @@ import static org.elasticsearch.legacy.cluster.metadata.MetaDataIndexStateServic
  * Individual shards are getting restored as part of normal recovery process in
  * {@link org.elasticsearch.legacy.index.gateway.IndexShardGatewayService#recover(boolean, org.elasticsearch.legacy.index.gateway.IndexShardGatewayService.RecoveryListener)}
  * method, which detects that shard should be restored from snapshot rather than recovered from gateway by looking
- * at the {@link org.elasticsearch.cluster.routing.ShardRouting#restoreSource()} property. If this property is not null
- * {@code recover} method uses {@link org.elasticsearch.legacy.index.snapshots.IndexShardSnapshotAndRestoreService#restore(org.elasticsearch.indices.recovery.RecoveryState)}
+ * at the {@link org.elasticsearch.legacy.cluster.routing.ShardRouting#restoreSource()} property. If this property is not null
+ * {@code recover} method uses {@link org.elasticsearch.legacy.index.snapshots.IndexShardSnapshotAndRestoreService#restore(org.elasticsearch.legacy.indices.recovery.RecoveryState)}
  * method to start shard restore process.
  * <p/>
  * At the end of the successful restore process {@code IndexShardSnapshotAndRestoreService} calls {@link #indexShardRestoreCompleted(SnapshotId, ShardId)},

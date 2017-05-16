@@ -34,7 +34,7 @@ import org.junit.Test;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.ClusterScope;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.ClusterScope;
 import static org.hamcrest.Matchers.equalTo;
 
 @ClusterScope(scope = ElasticsearchIntegrationTest.Scope.SUITE)

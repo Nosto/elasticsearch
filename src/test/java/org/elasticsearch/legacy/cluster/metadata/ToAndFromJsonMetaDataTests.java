@@ -26,7 +26,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-import static org.elasticsearch.cluster.metadata.AliasMetaData.newAliasMetaDataBuilder;
+import static org.elasticsearch.legacy.cluster.metadata.AliasMetaData.newAliasMetaDataBuilder;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;

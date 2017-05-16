@@ -39,7 +39,7 @@ public interface ActionFuture<T> extends Future<T> {
      * and throwing the actual cause of the {@link java.util.concurrent.ExecutionException}.
      * <p/>
      * <p>Note, the actual cause is unwrapped to the actual failure (for example, unwrapped
-     * from {@link org.elasticsearch.transport.RemoteTransportException}. The root failure is
+     * from {@link org.elasticsearch.legacy.transport.RemoteTransportException}. The root failure is
      * still accessible using {@link #getRootFailure()}.
      */
     T actionGet() throws ElasticsearchException;
@@ -50,7 +50,7 @@ public interface ActionFuture<T> extends Future<T> {
      * and throwing the actual cause of the {@link java.util.concurrent.ExecutionException}.
      * <p/>
      * <p>Note, the actual cause is unwrapped to the actual failure (for example, unwrapped
-     * from {@link org.elasticsearch.transport.RemoteTransportException}. The root failure is
+     * from {@link org.elasticsearch.legacy.transport.RemoteTransportException}. The root failure is
      * still accessible using {@link #getRootFailure()}.
      */
     T actionGet(String timeout) throws ElasticsearchException;
@@ -61,7 +61,7 @@ public interface ActionFuture<T> extends Future<T> {
      * and throwing the actual cause of the {@link java.util.concurrent.ExecutionException}.
      * <p/>
      * <p>Note, the actual cause is unwrapped to the actual failure (for example, unwrapped
-     * from {@link org.elasticsearch.transport.RemoteTransportException}. The root failure is
+     * from {@link org.elasticsearch.legacy.transport.RemoteTransportException}. The root failure is
      * still accessible using {@link #getRootFailure()}.
      *
      * @param timeoutMillis Timeout in millis
@@ -74,7 +74,7 @@ public interface ActionFuture<T> extends Future<T> {
      * and throwing the actual cause of the {@link java.util.concurrent.ExecutionException}.
      * <p/>
      * <p>Note, the actual cause is unwrapped to the actual failure (for example, unwrapped
-     * from {@link org.elasticsearch.transport.RemoteTransportException}. The root failure is
+     * from {@link org.elasticsearch.legacy.transport.RemoteTransportException}. The root failure is
      * still accessible using {@link #getRootFailure()}.
      */
     T actionGet(long timeout, TimeUnit unit) throws ElasticsearchException;
@@ -85,7 +85,7 @@ public interface ActionFuture<T> extends Future<T> {
      * and throwing the actual cause of the {@link java.util.concurrent.ExecutionException}.
      * <p/>
      * <p>Note, the actual cause is unwrapped to the actual failure (for example, unwrapped
-     * from {@link org.elasticsearch.transport.RemoteTransportException}. The root failure is
+     * from {@link org.elasticsearch.legacy.transport.RemoteTransportException}. The root failure is
      * still accessible using {@link #getRootFailure()}.
      */
     T actionGet(TimeValue timeout) throws ElasticsearchException;

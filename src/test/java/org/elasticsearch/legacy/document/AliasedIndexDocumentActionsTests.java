@@ -19,7 +19,7 @@
 
 package org.elasticsearch.legacy.document;
 
-import static org.elasticsearch.client.Requests.createIndexRequest;
+import static org.elasticsearch.legacy.client.Requests.createIndexRequest;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
 
 /**

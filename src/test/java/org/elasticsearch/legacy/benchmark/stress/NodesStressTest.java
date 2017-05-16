@@ -33,15 +33,15 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.atomic.AtomicLong;
 
-import static org.elasticsearch.client.Requests.searchRequest;
-import static org.elasticsearch.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_REPLICAS;
-import static org.elasticsearch.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_SHARDS;
+import static org.elasticsearch.legacy.client.Requests.searchRequest;
+import static org.elasticsearch.legacy.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_REPLICAS;
+import static org.elasticsearch.legacy.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_SHARDS;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.Builder.EMPTY_SETTINGS;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
 import static org.elasticsearch.legacy.index.query.FilterBuilders.queryFilter;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.constantScoreQuery;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.termQuery;
-import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
+import static org.elasticsearch.legacy.node.NodeBuilder.nodeBuilder;
 import static org.elasticsearch.legacy.search.builder.SearchSourceBuilder.searchSource;
 
 /**

@@ -35,12 +35,12 @@ import org.elasticsearch.legacy.search.aggregations.metrics.cardinality.Cardinal
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-import static org.elasticsearch.client.Requests.createIndexRequest;
-import static org.elasticsearch.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_REPLICAS;
-import static org.elasticsearch.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_SHARDS;
+import static org.elasticsearch.legacy.client.Requests.createIndexRequest;
+import static org.elasticsearch.legacy.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_REPLICAS;
+import static org.elasticsearch.legacy.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_SHARDS;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
-import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
+import static org.elasticsearch.legacy.node.NodeBuilder.nodeBuilder;
 import static org.elasticsearch.legacy.search.aggregations.AggregationBuilders.cardinality;
 
 public class CardinalityAggregationSearchBenchmark {

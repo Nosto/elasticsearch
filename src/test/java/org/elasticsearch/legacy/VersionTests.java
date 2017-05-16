@@ -28,8 +28,8 @@ import org.junit.Test;
 
 import java.util.Locale;
 
-import static org.elasticsearch.Version.V_0_20_0;
-import static org.elasticsearch.Version.V_0_90_0;
+import static org.elasticsearch.legacy.Version.V_0_20_0;
+import static org.elasticsearch.legacy.Version.V_0_90_0;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.sameInstance;

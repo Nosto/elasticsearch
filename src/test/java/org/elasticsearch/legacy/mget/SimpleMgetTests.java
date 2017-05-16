@@ -33,7 +33,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
 import static org.hamcrest.Matchers.*;
 
 public class SimpleMgetTests extends ElasticsearchIntegrationTest {

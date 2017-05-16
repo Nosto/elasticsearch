@@ -40,8 +40,8 @@ import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuild
 import static org.elasticsearch.legacy.index.query.FilterBuilders.matchAllFilter;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.matchAllQuery;
 import static org.elasticsearch.legacy.search.aggregations.AggregationBuilders.*;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertSearchResponse;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertSearchResponse;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.IsNull.notNullValue;
 

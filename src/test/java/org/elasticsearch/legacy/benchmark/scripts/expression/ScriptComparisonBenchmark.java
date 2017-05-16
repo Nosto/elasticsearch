@@ -36,7 +36,7 @@ import org.joda.time.PeriodType;
 import java.util.Random;
 
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
-import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
+import static org.elasticsearch.legacy.node.NodeBuilder.nodeBuilder;
 
 public class ScriptComparisonBenchmark {
 

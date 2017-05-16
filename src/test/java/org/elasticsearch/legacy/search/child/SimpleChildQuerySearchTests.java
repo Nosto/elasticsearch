@@ -55,7 +55,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static com.google.common.collect.Maps.newHashMap;
-import static org.elasticsearch.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_REPLICAS;
+import static org.elasticsearch.legacy.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_REPLICAS;
 import static org.elasticsearch.legacy.common.io.Streams.copyToStringFromClasspath;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.builder;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
@@ -66,7 +66,7 @@ import static org.elasticsearch.legacy.index.query.QueryBuilders.constantScoreQu
 import static org.elasticsearch.legacy.index.query.functionscore.ScoreFunctionBuilders.factorFunction;
 import static org.elasticsearch.legacy.index.query.functionscore.ScoreFunctionBuilders.scriptFunction;
 import static org.elasticsearch.legacy.search.facet.FacetBuilders.termsFacet;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.*;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.*;
 import static org.hamcrest.Matchers.*;
 
 /**

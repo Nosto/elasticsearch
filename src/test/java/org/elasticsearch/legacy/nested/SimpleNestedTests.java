@@ -46,7 +46,7 @@ import static org.elasticsearch.legacy.common.settings.ImmutableSettings.setting
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
 import static org.elasticsearch.legacy.index.query.FilterBuilders.*;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.*;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.*;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.*;
 import static org.hamcrest.Matchers.*;
 
 public class SimpleNestedTests extends ElasticsearchIntegrationTest {

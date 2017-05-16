@@ -42,7 +42,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
-import static org.elasticsearch.cluster.routing.ShardRoutingState.*;
+import static org.elasticsearch.legacy.cluster.routing.ShardRoutingState.*;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -93,7 +93,7 @@ public class DiskThresholdDeciderTests extends ElasticsearchAllocationTestCase {
                 .addAsNew(metaData.index("test"))
                 .build();
 
-        ClusterState clusterState = ClusterState.builder(org.elasticsearch.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
+        ClusterState clusterState = ClusterState.builder(org.elasticsearch.legacy.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
 
         logger.info("--> adding two nodes");
         clusterState = ClusterState.builder(clusterState).nodes(DiscoveryNodes.builder()
@@ -284,7 +284,7 @@ public class DiskThresholdDeciderTests extends ElasticsearchAllocationTestCase {
                 .addAsNew(metaData.index("test"))
                 .build();
 
-        ClusterState clusterState = ClusterState.builder(org.elasticsearch.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
+        ClusterState clusterState = ClusterState.builder(org.elasticsearch.legacy.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
 
         logger.info("--> adding node1 and node2 node");
         clusterState = ClusterState.builder(clusterState).nodes(DiscoveryNodes.builder()
@@ -533,7 +533,7 @@ public class DiskThresholdDeciderTests extends ElasticsearchAllocationTestCase {
                 .addAsNew(metaData.index("test"))
                 .build();
 
-        ClusterState clusterState = ClusterState.builder(org.elasticsearch.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
+        ClusterState clusterState = ClusterState.builder(org.elasticsearch.legacy.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
         logger.info("--> adding node1");
         clusterState = ClusterState.builder(clusterState).nodes(DiscoveryNodes.builder()
                 .put(newNode("node1"))
@@ -595,7 +595,7 @@ public class DiskThresholdDeciderTests extends ElasticsearchAllocationTestCase {
                 .addAsNew(metaData.index("test"))
                 .build();
 
-        ClusterState clusterState = ClusterState.builder(org.elasticsearch.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
+        ClusterState clusterState = ClusterState.builder(org.elasticsearch.legacy.cluster.ClusterName.DEFAULT).metaData(metaData).routingTable(routingTable).build();
         logger.info("--> adding node1");
         clusterState = ClusterState.builder(clusterState).nodes(DiscoveryNodes.builder()
                 .put(newNode("node1"))
@@ -652,7 +652,7 @@ public class DiskThresholdDeciderTests extends ElasticsearchAllocationTestCase {
         logger.info("--> counts: total: {}, unassigned: {}, initializing: {}, relocating: {}, started: {}",
                 rn.shards(new Predicate<MutableShardRouting>() {
                     @Override
-                    public boolean apply(org.elasticsearch.cluster.routing.MutableShardRouting input) {
+                    public boolean apply(org.elasticsearch.legacy.cluster.routing.MutableShardRouting input) {
                         return true;
                     }
                 }).size(),

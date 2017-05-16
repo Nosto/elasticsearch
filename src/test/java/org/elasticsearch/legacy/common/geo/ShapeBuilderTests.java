@@ -30,8 +30,8 @@ import org.elasticsearch.legacy.common.geo.builders.ShapeBuilder;
 import org.elasticsearch.legacy.test.ElasticsearchTestCase;
 import org.junit.Test;
 
-import static org.elasticsearch.test.hamcrest.ElasticsearchGeoAssertions.assertMultiLineString;
-import static org.elasticsearch.test.hamcrest.ElasticsearchGeoAssertions.assertMultiPolygon;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchGeoAssertions.assertMultiLineString;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchGeoAssertions.assertMultiPolygon;
 /**
  * Tests for {@link ShapeBuilder}
  */

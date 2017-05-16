@@ -49,15 +49,15 @@ public class ImmutableSettingsTests extends ElasticsearchTestCase {
     public void testGetAsClass() {
         Settings settings = settingsBuilder()
                 .put("test.class", "bar")
-                .put("test.class.package", "org.elasticsearch.common.settings.bar")
+                .put("test.class.package", "org.elasticsearch.legacy.common.settings.bar")
                 .build();
 
         // Assert that defaultClazz is loaded if setting is not specified
-        assertThat(settings.getAsClass("no.settings", FooTestClass.class, "org.elasticsearch.common.settings.", "TestClass").getName(),
+        assertThat(settings.getAsClass("no.settings", FooTestClass.class, "org.elasticsearch.legacy.common.settings.", "TestClass").getName(),
                 equalTo(FooTestClass.class.getName()));
 
         // Assert that correct class is loaded if setting contain name without package
-        assertThat(settings.getAsClass("test.class", FooTestClass.class, "org.elasticsearch.common.settings.", "TestClass").getName(),
+        assertThat(settings.getAsClass("test.class", FooTestClass.class, "org.elasticsearch.legacy.common.settings.", "TestClass").getName(),
                 equalTo(BarTestClass.class.getName()));
 
         // Assert that class cannot be loaded if wrong packagePrefix is specified

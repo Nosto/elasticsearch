@@ -27,7 +27,7 @@ import org.elasticsearch.legacy.search.aggregations.AggregationBuilders;
 import org.elasticsearch.legacy.search.aggregations.Aggregator.SubAggCollectionMode;
 import org.elasticsearch.legacy.test.ElasticsearchSingleNodeTest;
 
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.*;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.*;
 
 public class DisabledFieldDataFormatTests extends ElasticsearchSingleNodeTest {
 

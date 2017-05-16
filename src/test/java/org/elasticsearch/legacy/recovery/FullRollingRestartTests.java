@@ -30,8 +30,8 @@ import org.elasticsearch.legacy.test.junit.annotations.TestLogging;
 import org.junit.Test;
 
 import static org.elasticsearch.legacy.index.query.QueryBuilders.matchAllQuery;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.*;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertHitCount;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.*;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertHitCount;
 
 /**
  *

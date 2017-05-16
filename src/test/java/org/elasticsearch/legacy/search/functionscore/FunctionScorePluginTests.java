@@ -36,15 +36,15 @@ import org.elasticsearch.legacy.test.ElasticsearchIntegrationTest;
 import org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions;
 import org.junit.Test;
 
-import static org.elasticsearch.client.Requests.indexRequest;
-import static org.elasticsearch.client.Requests.searchRequest;
+import static org.elasticsearch.legacy.client.Requests.indexRequest;
+import static org.elasticsearch.legacy.client.Requests.searchRequest;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.functionScoreQuery;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.termQuery;
 import static org.elasticsearch.legacy.search.builder.SearchSourceBuilder.searchSource;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.ClusterScope;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.Scope;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.ClusterScope;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.Scope;
 import static org.hamcrest.Matchers.equalTo;
 
 /**

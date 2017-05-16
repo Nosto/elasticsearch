@@ -46,8 +46,8 @@ import java.io.IOException;
 import java.util.*;
 
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.*;
-import static org.elasticsearch.test.hamcrest.ElasticsearchGeoAssertions.assertDistance;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.*;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchGeoAssertions.assertDistance;
 import static org.hamcrest.Matchers.containsString;
 
 public class ContextSuggestSearchTests extends ElasticsearchIntegrationTest {

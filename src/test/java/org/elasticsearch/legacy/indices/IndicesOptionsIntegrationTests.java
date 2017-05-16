@@ -62,8 +62,8 @@ import org.junit.Test;
 import static org.elasticsearch.legacy.action.percolate.PercolateSourceBuilder.docBuilder;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.boolQuery;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.matchAllQuery;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertHitCount;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertHitCount;
 import static org.hamcrest.Matchers.*;
 
 public class IndicesOptionsIntegrationTests extends ElasticsearchIntegrationTest {

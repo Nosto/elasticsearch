@@ -31,8 +31,8 @@ import org.elasticsearch.legacy.test.ElasticsearchIntegrationTest;
 
 import java.util.*;
 
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertSearchResponse;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertSearchResponse;
 
 
 public class ExistsMissingTests extends ElasticsearchIntegrationTest {

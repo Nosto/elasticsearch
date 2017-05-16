@@ -70,7 +70,7 @@ public class ShardsAllocatorModule extends AbstractModule {
             shardsAllocator = EvenShardsCountAllocator.class;
         } else {
             shardsAllocator = settings.getAsClass(TYPE_KEY, BalancedShardsAllocator.class,
-                    "org.elasticsearch.cluster.routing.allocation.allocator.", "Allocator");
+                    "org.elasticsearch.legacy.cluster.routing.allocation.allocator.", "Allocator");
         }
         return shardsAllocator;
     }

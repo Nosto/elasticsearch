@@ -22,7 +22,7 @@ package org.elasticsearch.legacy.cluster;
 import org.elasticsearch.legacy.common.unit.TimeValue;
 
 /**
- * An extension interface to {@link org.elasticsearch.cluster.ClusterStateUpdateTask} that allows to associate
+ * An extension interface to {@link org.elasticsearch.legacy.cluster.ClusterStateUpdateTask} that allows to associate
  * a timeout.
  */
 public interface TimeoutClusterStateUpdateTask extends ProcessedClusterStateUpdateTask {

@@ -35,7 +35,7 @@ import org.elasticsearch.legacy.transport.netty.NettyTransport;
 
 import java.util.concurrent.CountDownLatch;
 
-import static org.elasticsearch.transport.TransportRequestOptions.options;
+import static org.elasticsearch.legacy.transport.TransportRequestOptions.options;
 
 /**
  *

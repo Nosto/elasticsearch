@@ -46,13 +46,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.elasticsearch.client.Requests.indexRequest;
-import static org.elasticsearch.client.Requests.searchRequest;
+import static org.elasticsearch.legacy.client.Requests.indexRequest;
+import static org.elasticsearch.legacy.client.Requests.searchRequest;
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.*;
 import static org.elasticsearch.legacy.index.query.functionscore.ScoreFunctionBuilders.*;
 import static org.elasticsearch.legacy.search.builder.SearchSourceBuilder.searchSource;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.*;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.*;
 import static org.hamcrest.Matchers.*;
 
 public class DecayFunctionScoreTests extends ElasticsearchIntegrationTest {

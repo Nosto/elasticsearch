@@ -53,12 +53,12 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import static com.google.common.collect.Sets.newHashSet;
-import static org.elasticsearch.client.Requests.createIndexRequest;
-import static org.elasticsearch.client.Requests.indexRequest;
+import static org.elasticsearch.legacy.client.Requests.createIndexRequest;
+import static org.elasticsearch.legacy.client.Requests.indexRequest;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
 import static org.elasticsearch.legacy.index.query.FilterBuilders.termFilter;
-import static org.elasticsearch.test.hamcrest.CollectionAssertions.hasKey;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.CollectionAssertions.hasKey;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
 import static org.hamcrest.Matchers.*;
 
 /**

@@ -41,7 +41,7 @@ import org.junit.Test;
 
 import java.util.Map;
 
-import static org.elasticsearch.client.Requests.clusterHealthRequest;
+import static org.elasticsearch.legacy.client.Requests.clusterHealthRequest;
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
 import static org.hamcrest.Matchers.*;
 

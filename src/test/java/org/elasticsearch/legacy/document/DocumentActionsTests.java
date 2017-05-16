@@ -40,9 +40,9 @@ import org.junit.Test;
 import java.io.IOException;
 import java.util.Map;
 
-import static org.elasticsearch.client.Requests.*;
+import static org.elasticsearch.legacy.client.Requests.*;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.termQuery;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertNoFailures;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertNoFailures;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.nullValue;
 

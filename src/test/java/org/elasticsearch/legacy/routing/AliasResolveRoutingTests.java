@@ -29,7 +29,7 @@ import java.util.Set;
 
 import static com.google.common.collect.Maps.newHashMap;
 import static com.google.common.collect.Sets.newHashSet;
-import static org.elasticsearch.cluster.metadata.AliasAction.newAddAliasAction;
+import static org.elasticsearch.legacy.cluster.metadata.AliasAction.newAddAliasAction;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.nullValue;
 

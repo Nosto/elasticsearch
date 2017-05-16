@@ -27,8 +27,8 @@ import org.elasticsearch.legacy.common.transport.DummyTransportAddress;
 import org.elasticsearch.legacy.test.ElasticsearchTestCase;
 import org.junit.Test;
 
-import static org.elasticsearch.cluster.node.DiscoveryNodeFilters.OpType.AND;
-import static org.elasticsearch.cluster.node.DiscoveryNodeFilters.OpType.OR;
+import static org.elasticsearch.legacy.cluster.node.DiscoveryNodeFilters.OpType.AND;
+import static org.elasticsearch.legacy.cluster.node.DiscoveryNodeFilters.OpType.OR;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 

@@ -35,7 +35,7 @@ import org.elasticsearch.legacy.test.ElasticsearchAllocationTestCase;
 
 import java.util.Random;
 
-import static org.elasticsearch.cluster.routing.ShardRoutingState.INITIALIZING;
+import static org.elasticsearch.legacy.cluster.routing.ShardRoutingState.INITIALIZING;
 
 public class ClusterAllocationRerouteBenchmark {
 

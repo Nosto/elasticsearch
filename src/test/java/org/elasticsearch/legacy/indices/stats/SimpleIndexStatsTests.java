@@ -36,9 +36,9 @@ import java.io.IOException;
 import java.util.EnumSet;
 import java.util.Random;
 
-import static org.elasticsearch.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_REPLICAS;
+import static org.elasticsearch.legacy.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_REPLICAS;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
 import static org.hamcrest.Matchers.*;
 
 @ClusterScope(scope = Scope.SUITE, numDataNodes = 2)
@@ -205,7 +205,7 @@ public class SimpleIndexStatsTests extends ElasticsearchIntegrationTest {
 
         assertThat(stats.getTotal().getSegments(), notNullValue());
         assertThat(stats.getTotal().getSegments().getCount(), equalTo((long)test1.totalNumShards));
-        assumeTrue(org.elasticsearch.Version.CURRENT.luceneVersion != Version.LUCENE_46);
+        assumeTrue(org.elasticsearch.legacy.Version.CURRENT.luceneVersion != Version.LUCENE_46);
         assertThat(stats.getTotal().getSegments().getMemoryInBytes(), greaterThan(0l));
     }
 

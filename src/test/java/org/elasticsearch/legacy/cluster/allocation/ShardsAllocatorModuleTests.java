@@ -31,7 +31,7 @@ import org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.ClusterScope;
 import java.io.IOException;
 
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.*;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.*;
 import static org.hamcrest.Matchers.instanceOf;
 
 @ClusterScope(scope= Scope.TEST, numDataNodes =0)
@@ -54,7 +54,7 @@ public class ShardsAllocatorModuleTests extends ElasticsearchIntegrationTest {
         assertAllocatorInstance(build, EvenShardsCountAllocator.class);
 
         build = settingsBuilder().put(ShardsAllocatorModule.TYPE_KEY,
-                "org.elasticsearch.cluster.routing.allocation.allocator.EvenShardsCountAllocator").build();
+                "org.elasticsearch.legacy.cluster.routing.allocation.allocator.EvenShardsCountAllocator").build();
         assertAllocatorInstance(build, EvenShardsCountAllocator.class);
     }
 

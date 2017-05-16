@@ -33,8 +33,8 @@ import org.elasticsearch.legacy.test.hamcrest.CollectionAssertions;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertIndexTemplateExists;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertIndexTemplateExists;
 import static org.hamcrest.Matchers.*;
 
 /**

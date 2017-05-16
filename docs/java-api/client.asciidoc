@@ -37,7 +37,7 @@ that can execute operations against elasticsearch.
 
 [source,java]
 --------------------------------------------------
-import static org.elasticsearch.node.NodeBuilder.*;
+import static org.elasticsearch.legacy.node.NodeBuilder.*;
 
 // on startup
 
@@ -86,7 +86,7 @@ it):
 
 [source,java]
 --------------------------------------------------
-import static org.elasticsearch.node.NodeBuilder.*;
+import static org.elasticsearch.legacy.node.NodeBuilder.*;
 
 // on startup
 
@@ -108,7 +108,7 @@ and form a cluster.
 
 [source,java]
 --------------------------------------------------
-import static org.elasticsearch.node.NodeBuilder.*;
+import static org.elasticsearch.legacy.node.NodeBuilder.*;
 
 // on startup
 

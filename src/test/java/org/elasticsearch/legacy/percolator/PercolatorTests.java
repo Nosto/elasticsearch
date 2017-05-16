@@ -60,7 +60,7 @@ import static org.elasticsearch.legacy.common.xcontent.XContentFactory.*;
 import static org.elasticsearch.legacy.index.query.FilterBuilders.termFilter;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.*;
 import static org.elasticsearch.legacy.index.query.functionscore.ScoreFunctionBuilders.scriptFunction;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.*;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.*;
 import static org.hamcrest.Matchers.*;
 
 /**

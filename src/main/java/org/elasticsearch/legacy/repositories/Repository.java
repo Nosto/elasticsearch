@@ -34,10 +34,10 @@ import org.elasticsearch.legacy.snapshots.SnapshotShardFailure;
  * <p/>
  * Typical snapshot usage pattern:
  * <ul>
- * <li>Master calls {@link #initializeSnapshot(org.elasticsearch.cluster.metadata.SnapshotId, com.google.common.collect.ImmutableList, org.elasticsearch.cluster.metadata.MetaData)}
+ * <li>Master calls {@link #initializeSnapshot(org.elasticsearch.legacy.cluster.metadata.SnapshotId, com.google.common.collect.ImmutableList, org.elasticsearch.legacy.cluster.metadata.MetaData)}
  * with list of indices that will be included into the snapshot</li>
- * <li>Data nodes call {@link org.elasticsearch.legacy.index.snapshots.IndexShardRepository#snapshot(org.elasticsearch.cluster.metadata.SnapshotId, org.elasticsearch.legacy.index.shard.ShardId, org.elasticsearch.legacy.index.deletionpolicy.SnapshotIndexCommit, org.elasticsearch.legacy.index.snapshots.IndexShardSnapshotStatus)} for each shard</li>
- * <li>When all shard calls return master calls {@link #finalizeSnapshot(org.elasticsearch.cluster.metadata.SnapshotId, String, int, com.google.common.collect.ImmutableList)}
+ * <li>Data nodes call {@link org.elasticsearch.legacy.index.snapshots.IndexShardRepository#snapshot(org.elasticsearch.legacy.cluster.metadata.SnapshotId, org.elasticsearch.legacy.index.shard.ShardId, org.elasticsearch.legacy.index.deletionpolicy.SnapshotIndexCommit, org.elasticsearch.legacy.index.snapshots.IndexShardSnapshotStatus)} for each shard</li>
+ * <li>When all shard calls return master calls {@link #finalizeSnapshot(org.elasticsearch.legacy.cluster.metadata.SnapshotId, String, int, com.google.common.collect.ImmutableList)}
  * with possible list of failures</li>
  * </ul>
  */

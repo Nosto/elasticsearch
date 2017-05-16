@@ -39,10 +39,10 @@ import java.net.URL;
 import java.util.Collections;
 import java.util.List;
 
-import static org.elasticsearch.client.Requests.clusterHealthRequest;
-import static org.elasticsearch.client.Requests.nodesInfoRequest;
+import static org.elasticsearch.legacy.client.Requests.clusterHealthRequest;
+import static org.elasticsearch.legacy.client.Requests.nodesInfoRequest;
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;
-import static org.elasticsearch.test.ElasticsearchIntegrationTest.Scope;
+import static org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.Scope;
 import static org.hamcrest.Matchers.*;
 
 /**

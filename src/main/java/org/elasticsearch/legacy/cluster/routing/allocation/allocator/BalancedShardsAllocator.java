@@ -54,7 +54,7 @@ import static org.elasticsearch.legacy.cluster.routing.ShardRoutingState.RELOCAT
  * <ul><li><code>cluster.routing.allocation.balance.shard</code> - The <b>shard balance</b> defines the weight factor
  * for shards allocated on a {@link RoutingNode}</li>
  * <li><code>cluster.routing.allocation.balance.index</code> - The <b>index balance</b> defines a factor to the number
- * of {@link org.elasticsearch.cluster.routing.ShardRouting}s per index allocated on a specific node</li>
+ * of {@link org.elasticsearch.legacy.cluster.routing.ShardRouting}s per index allocated on a specific node</li>
  * <li><code>cluster.routing.allocation.balance.primary</code> - the <b>primary balance</b> defines a weight factor for
  * the number of primaries of a specific index allocated on a node</li>
  * <li><code>cluster.routing.allocation.balance.threshold</code> - A <b>threshold</b> to set the minimal optimization
@@ -332,7 +332,7 @@ public class BalancedShardsAllocator extends AbstractComponent implements Shards
         /**
          * Returns a new {@link NodeSorter} that sorts the nodes based on their
          * current weight with respect to the index passed to the sorter. The
-         * returned sorter is not sorted. Use {@link NodeSorter#reset(org.elasticsearch.cluster.routing.allocation.allocator.BalancedShardsAllocator.Operation, String)}
+         * returned sorter is not sorted. Use {@link NodeSorter#reset(org.elasticsearch.legacy.cluster.routing.allocation.allocator.BalancedShardsAllocator.Operation, String)}
          * to sort based on an index.
          */
         private NodeSorter newNodeSorter() {

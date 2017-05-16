@@ -75,7 +75,7 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import static com.google.common.base.Predicates.isNull;
-import static org.elasticsearch.test.ElasticsearchTestCase.*;
+import static org.elasticsearch.legacy.test.ElasticsearchTestCase.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertTrue;

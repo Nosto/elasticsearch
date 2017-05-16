@@ -38,9 +38,9 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import static org.elasticsearch.legacy.index.query.QueryBuilders.boolQuery;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.termQuery;
-import static org.elasticsearch.percolator.PercolatorTests.convertFromTextArray;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertNoFailures;
+import static org.elasticsearch.legacy.percolator.PercolatorTests.convertFromTextArray;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertNoFailures;
 import static org.hamcrest.Matchers.*;
 
 

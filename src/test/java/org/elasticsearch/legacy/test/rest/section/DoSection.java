@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import static org.elasticsearch.legacy.common.collect.Tuple.tuple;
-import static org.elasticsearch.test.hamcrest.RegexMatcher.matches;
+import static org.elasticsearch.legacy.test.hamcrest.RegexMatcher.matches;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;

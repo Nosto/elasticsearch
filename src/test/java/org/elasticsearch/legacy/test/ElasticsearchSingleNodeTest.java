@@ -44,7 +44,7 @@ import org.elasticsearch.legacy.threadpool.ThreadPool;
 import org.junit.After;
 import org.junit.Ignore;
 
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
 import static org.hamcrest.Matchers.*;
 
 /**

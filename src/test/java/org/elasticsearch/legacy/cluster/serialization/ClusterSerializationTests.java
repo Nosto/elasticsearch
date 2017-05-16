@@ -74,7 +74,7 @@ public class ClusterSerializationTests extends ElasticsearchAllocationTestCase {
 
         DiscoveryNodes nodes = DiscoveryNodes.builder().put(newNode("node1")).put(newNode("node2")).put(newNode("node3")).build();
 
-        ClusterState clusterState = ClusterState.builder(org.elasticsearch.cluster.ClusterName.DEFAULT).nodes(nodes).metaData(metaData).routingTable(routingTable).build();
+        ClusterState clusterState = ClusterState.builder(org.elasticsearch.legacy.cluster.ClusterName.DEFAULT).nodes(nodes).metaData(metaData).routingTable(routingTable).build();
 
         AllocationService strategy = createAllocationService();
         RoutingTable source = strategy.reroute(clusterState).routingTable();

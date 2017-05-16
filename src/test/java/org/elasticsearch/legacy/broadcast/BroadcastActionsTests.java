@@ -29,10 +29,10 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-import static org.elasticsearch.client.Requests.countRequest;
-import static org.elasticsearch.client.Requests.indexRequest;
+import static org.elasticsearch.legacy.client.Requests.countRequest;
+import static org.elasticsearch.legacy.client.Requests.indexRequest;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.termQuery;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 

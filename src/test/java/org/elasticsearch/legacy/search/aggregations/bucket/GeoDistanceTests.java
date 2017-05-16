@@ -39,7 +39,7 @@ import java.util.Set;
 import static org.elasticsearch.legacy.common.xcontent.XContentFactory.jsonBuilder;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.matchAllQuery;
 import static org.elasticsearch.legacy.search.aggregations.AggregationBuilders.*;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertSearchResponse;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertSearchResponse;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.IsNull.notNullValue;
@@ -387,7 +387,7 @@ public class GeoDistanceTests extends ElasticsearchIntegrationTest {
                 .addAggregation(geoDistance("amsterdam_rings")
                         .field("location")
                         .unit(DistanceUnit.KILOMETERS)
-                        .distanceType(org.elasticsearch.common.geo.GeoDistance.ARC)
+                        .distanceType(org.elasticsearch.legacy.common.geo.GeoDistance.ARC)
                         .point("52.3760, 4.894") // coords of amsterdam
                         .addUnboundedTo(500)
                         .addRange(500, 1000)

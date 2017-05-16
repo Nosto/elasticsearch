@@ -36,7 +36,7 @@ import java.util.Map;
 import static org.elasticsearch.legacy.index.query.FilterBuilders.geoDistanceFilter;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.constantScoreQuery;
 import static org.elasticsearch.legacy.index.query.QueryBuilders.matchQuery;
-import static org.elasticsearch.test.hamcrest.ElasticsearchAssertions.assertAcked;
+import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;
 import static org.hamcrest.Matchers.*;
 
 /**

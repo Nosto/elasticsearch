@@ -41,7 +41,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static org.elasticsearch.cluster.routing.ShardRoutingState.*;
+import static org.elasticsearch.legacy.cluster.routing.ShardRoutingState.*;
 import static org.hamcrest.Matchers.equalTo;
 
 /**
@@ -138,7 +138,7 @@ public class TransportIndexFailuresTest extends ElasticsearchIntegrationTest {
         logger.info("--> counts: total: {}, unassigned: {}, initializing: {}, relocating: {}, started: {}",
                 rn.shards(new Predicate<MutableShardRouting>() {
                     @Override
-                    public boolean apply(org.elasticsearch.cluster.routing.MutableShardRouting input) {
+                    public boolean apply(org.elasticsearch.legacy.cluster.routing.MutableShardRouting input) {
                         return true;
                     }
                 }).size(),
