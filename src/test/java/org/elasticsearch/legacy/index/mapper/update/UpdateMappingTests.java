@@ -117,7 +117,7 @@ public class UpdateMappingTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testSizeTimestampIndexParsing() throws IOException {
         IndexService indexService = createIndex("test", ImmutableSettings.settingsBuilder().build());
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/update/default_mapping_with_disabled_root_types.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/update/default_mapping_with_disabled_root_types.json");
         DocumentMapper documentMapper = indexService.mapperService().parse("type", new CompressedString(mapping), true);
         assertThat(documentMapper.mappingSource().string(), equalTo(mapping));
         documentMapper.refreshSource();

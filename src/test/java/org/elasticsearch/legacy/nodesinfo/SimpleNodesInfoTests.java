@@ -153,7 +153,7 @@ public class SimpleNodesInfoTests extends ElasticsearchIntegrationTest {
     }
 
     public static String startNodeWithPlugins(int nodeId, String ... pluginClassNames) throws URISyntaxException {
-        return startNodeWithPlugins(ImmutableSettings.EMPTY, "/org/elasticsearch/nodesinfo/node" + Integer.toString(nodeId) + "/", pluginClassNames);
+        return startNodeWithPlugins(ImmutableSettings.EMPTY, "/org/elasticsearch/legacy/nodesinfo/node" + Integer.toString(nodeId) + "/", pluginClassNames);
     }
 
     public static String startNodeWithPlugins(Settings nodeSettings, String pluginDir, String ... pluginClassNames) throws URISyntaxException {

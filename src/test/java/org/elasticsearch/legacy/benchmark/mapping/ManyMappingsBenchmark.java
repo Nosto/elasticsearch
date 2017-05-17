@@ -27,7 +27,6 @@ import org.elasticsearch.legacy.common.settings.Settings;
 import org.elasticsearch.legacy.common.unit.TimeValue;
 import org.elasticsearch.legacy.common.xcontent.XContentBuilder;
 import org.elasticsearch.legacy.node.Node;
-import org.elasticsearch.legacy.transport.TransportModule;
 
 import static org.elasticsearch.legacy.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_REPLICAS;
 import static org.elasticsearch.legacy.cluster.metadata.IndexMetaData.SETTING_NUMBER_OF_SHARDS;

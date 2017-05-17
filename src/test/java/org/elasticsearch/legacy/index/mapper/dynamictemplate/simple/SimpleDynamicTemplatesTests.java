@@ -64,9 +64,9 @@ public class SimpleDynamicTemplatesTests extends ElasticsearchTestCase {
 
     @Test
     public void testSimple() throws Exception {
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/dynamictemplate/simple/test-mapping.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/dynamictemplate/simple/test-mapping.json");
         DocumentMapper docMapper = MapperTestUtils.newParser().parse(mapping);
-        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/index/mapper/dynamictemplate/simple/test-data.json");
+        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/legacy/index/mapper/dynamictemplate/simple/test-data.json");
         Document doc = docMapper.parse(new BytesArray(json)).rootDoc();
 
         IndexableField f = doc.getField("name");
@@ -117,12 +117,12 @@ public class SimpleDynamicTemplatesTests extends ElasticsearchTestCase {
 
     @Test
     public void testSimpleWithXContentTraverse() throws Exception {
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/dynamictemplate/simple/test-mapping.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/dynamictemplate/simple/test-mapping.json");
         DocumentMapper docMapper = MapperTestUtils.newParser().parse(mapping);
         docMapper.refreshSource();
         docMapper = MapperTestUtils.newParser().parse(docMapper.mappingSource().string());
 
-        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/index/mapper/dynamictemplate/simple/test-data.json");
+        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/legacy/index/mapper/dynamictemplate/simple/test-data.json");
         Document doc = docMapper.parse(new BytesArray(json)).rootDoc();
 
         IndexableField f = doc.getField("name");

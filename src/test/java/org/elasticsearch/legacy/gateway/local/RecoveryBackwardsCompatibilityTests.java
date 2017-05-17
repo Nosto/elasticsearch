@@ -32,7 +32,6 @@ import org.elasticsearch.legacy.common.settings.Settings;
 import org.elasticsearch.legacy.indices.recovery.RecoveryState;
 import org.elasticsearch.legacy.test.ElasticsearchBackwardsCompatIntegrationTest;
 import org.elasticsearch.legacy.test.ElasticsearchIntegrationTest;
-import org.elasticsearch.legacy.test.junit.annotations.TestLogging;
 import org.junit.Test;
 
 import static org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions.assertAcked;

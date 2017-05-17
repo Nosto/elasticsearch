@@ -20,9 +20,7 @@
 package org.elasticsearch.legacy.index.similarity;
 
 import org.apache.lucene.search.similarities.Similarity;
-import org.elasticsearch.legacy.common.inject.Provider;
 import org.elasticsearch.legacy.common.settings.Settings;
-import org.elasticsearch.legacy.index.IndexComponent;
 
 /**
  * Provider for {@link Similarity} instances

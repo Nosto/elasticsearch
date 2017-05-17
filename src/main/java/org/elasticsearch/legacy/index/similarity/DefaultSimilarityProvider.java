@@ -23,8 +23,6 @@ import org.apache.lucene.search.similarities.DefaultSimilarity;
 import org.elasticsearch.legacy.common.inject.Inject;
 import org.elasticsearch.legacy.common.inject.assistedinject.Assisted;
 import org.elasticsearch.legacy.common.settings.Settings;
-import org.elasticsearch.legacy.index.Index;
-import org.elasticsearch.legacy.index.settings.IndexSettings;
 
 /**
  * {@link SimilarityProvider} for {@link DefaultSimilarity}.

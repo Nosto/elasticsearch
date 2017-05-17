@@ -64,11 +64,11 @@ public class IndexQueryParserFilterCachingTests extends ElasticsearchSingleNodeT
         injector = createIndex("test", settings).injector();
 
         injector.getInstance(IndexFieldDataService.class).setIndexService((new StubIndexService(injector.getInstance(MapperService.class))));
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/query/mapping.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/mapping.json");
         injector.getInstance(MapperService.class).merge("person", new CompressedString(mapping), true);
-        String childMapping = copyToStringFromClasspath("/org/elasticsearch/index/query/child-mapping.json");
+        String childMapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/child-mapping.json");
         injector.getInstance(MapperService.class).merge("child", new CompressedString(childMapping), true);
-        injector.getInstance(MapperService.class).documentMapper("person").parse(new BytesArray(copyToBytesFromClasspath("/org/elasticsearch/index/query/data.json")));
+        injector.getInstance(MapperService.class).documentMapper("person").parse(new BytesArray(copyToBytesFromClasspath("/org/elasticsearch/legacy/index/query/data.json")));
         queryParser = injector.getInstance(IndexQueryParserService.class);
     }
 
@@ -191,69 +191,69 @@ public class IndexQueryParserFilterCachingTests extends ElasticsearchSingleNodeT
     @Test
     public void testNoFilterParsing() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/date_range_in_boolean.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/date_range_in_boolean.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(ConstantScoreQuery.class));
         assertThat(((ConstantScoreQuery)parsedQuery).getFilter(), instanceOf(XBooleanFilter.class));
         assertThat(((XBooleanFilter)((ConstantScoreQuery)parsedQuery).getFilter()).clauses().get(1).getFilter(), instanceOf(NoCacheFilter.class));
         assertThat(((XBooleanFilter)((ConstantScoreQuery)parsedQuery).getFilter()).clauses().size(), is(2));
 
-        query = copyToStringFromClasspath("/org/elasticsearch/index/query/date_range_in_boolean_with_long_value.json");
+        query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/date_range_in_boolean_with_long_value.json");
         parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(ConstantScoreQuery.class));
         assertThat(((ConstantScoreQuery) parsedQuery).getFilter(), instanceOf(XBooleanFilter.class));
         assertThat(((XBooleanFilter) ((ConstantScoreQuery) parsedQuery).getFilter()).clauses().get(1).getFilter(), instanceOf(CachedFilter.class));
         assertThat(((XBooleanFilter) ((ConstantScoreQuery) parsedQuery).getFilter()).clauses().size(), is(2));
 
-        query = copyToStringFromClasspath("/org/elasticsearch/index/query/date_range_in_boolean_with_long_value_not_cached.json");
+        query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/date_range_in_boolean_with_long_value_not_cached.json");
         parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(ConstantScoreQuery.class));
         assertThat(((ConstantScoreQuery) parsedQuery).getFilter(), instanceOf(XBooleanFilter.class));
         assertThat(((XBooleanFilter) ((ConstantScoreQuery) parsedQuery).getFilter()).clauses().get(1).getFilter(), instanceOf(NoCacheFilter.class));
         assertThat(((XBooleanFilter) ((ConstantScoreQuery) parsedQuery).getFilter()).clauses().size(), is(2));
 
-        query = copyToStringFromClasspath("/org/elasticsearch/index/query/date_range_in_boolean_cached_now.json");
+        query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/date_range_in_boolean_cached_now.json");
         parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(ConstantScoreQuery.class));
         assertThat(((ConstantScoreQuery)parsedQuery).getFilter(), instanceOf(XBooleanFilter.class));
         assertThat(((XBooleanFilter)((ConstantScoreQuery)parsedQuery).getFilter()).clauses().get(1).getFilter(), instanceOf(NoCacheFilter.class));
         assertThat(((XBooleanFilter)((ConstantScoreQuery)parsedQuery).getFilter()).clauses().size(), is(2));
 
-        query = copyToStringFromClasspath("/org/elasticsearch/index/query/date_range_in_boolean_cached_complex_now.json");
+        query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/date_range_in_boolean_cached_complex_now.json");
         parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(ConstantScoreQuery.class));
         assertThat(((ConstantScoreQuery) parsedQuery).getFilter(), instanceOf(XBooleanFilter.class));
         assertThat(((XBooleanFilter) ((ConstantScoreQuery) parsedQuery).getFilter()).clauses().get(1).getFilter(), instanceOf(NoCacheFilter.class));
         assertThat(((XBooleanFilter) ((ConstantScoreQuery) parsedQuery).getFilter()).clauses().size(), is(2));
 
-        query = copyToStringFromClasspath("/org/elasticsearch/index/query/date_range_in_boolean_cached.json");
+        query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/date_range_in_boolean_cached.json");
         parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(ConstantScoreQuery.class));
         assertThat(((ConstantScoreQuery) parsedQuery).getFilter(), instanceOf(CachedFilter.class));
 
-        query = copyToStringFromClasspath("/org/elasticsearch/index/query/date_range_in_boolean_cached_now_with_rounding.json");
+        query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/date_range_in_boolean_cached_now_with_rounding.json");
         parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(ConstantScoreQuery.class));
         assertThat(((ConstantScoreQuery) parsedQuery).getFilter(), instanceOf(CachedFilter.class));
 
-        query = copyToStringFromClasspath("/org/elasticsearch/index/query/date_range_in_boolean_cached_complex_now_with_rounding.json");
+        query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/date_range_in_boolean_cached_complex_now_with_rounding.json");
         parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(ConstantScoreQuery.class));
         assertThat(((ConstantScoreQuery) parsedQuery).getFilter(), instanceOf(CachedFilter.class));
 
         try {
             SearchContext.setCurrent(new TestSearchContext());
-            query = copyToStringFromClasspath("/org/elasticsearch/index/query/has-child.json");
+            query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/has-child.json");
             parsedQuery = queryParser.parse(query).query();
             assertThat(parsedQuery, instanceOf(ConstantScoreQuery.class));
             assertThat(((ConstantScoreQuery) parsedQuery).getFilter(), instanceOf(NoCacheFilter.class));
 
-            query = copyToStringFromClasspath("/org/elasticsearch/index/query/and-filter-cache.json");
+            query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/and-filter-cache.json");
             parsedQuery = queryParser.parse(query).query();
             assertThat(parsedQuery, instanceOf(ConstantScoreQuery.class));
             assertThat(((ConstantScoreQuery) parsedQuery).getFilter(), instanceOf(CachedFilter.class));
 
-            query = copyToStringFromClasspath("/org/elasticsearch/index/query/has-child-in-and-filter-cached.json");
+            query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/has-child-in-and-filter-cached.json");
             parsedQuery = queryParser.parse(query).query();
             assertThat(parsedQuery, instanceOf(ConstantScoreQuery.class));
             assertThat(((ConstantScoreQuery) parsedQuery).getFilter(), instanceOf(AndFilter.class));

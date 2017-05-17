@@ -27,7 +27,6 @@ import org.apache.lucene.store.StoreRateLimiting;
 import org.elasticsearch.legacy.common.Nullable;
 import org.elasticsearch.legacy.common.inject.Inject;
 import org.elasticsearch.legacy.common.io.stream.BytesStreamOutput;
-import org.elasticsearch.legacy.common.logging.ESLogger;
 import org.elasticsearch.legacy.common.lucene.Lucene;
 import org.elasticsearch.legacy.common.settings.Settings;
 import org.elasticsearch.legacy.index.settings.IndexSettings;

@@ -36,7 +36,7 @@ import static org.hamcrest.Matchers.instanceOf;
 @ThreadLeakScope(Scope.NONE)
 public class ShingleTokenFilterFactoryTests extends ElasticsearchTokenStreamTestCase {
 
-    private static final String RESOURCE = "org/elasticsearch/index/analysis/shingle_analysis.json";
+    private static final String RESOURCE = "org/elasticsearch/legacy/index/analysis/shingle_analysis.json";
 
     @Test
     public void testDefault() throws IOException {

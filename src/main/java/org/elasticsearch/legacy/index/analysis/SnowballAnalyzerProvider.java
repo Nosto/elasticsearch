@@ -19,7 +19,6 @@
 package org.elasticsearch.legacy.index.analysis;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
 import org.apache.lucene.analysis.core.StopAnalyzer;
 import org.apache.lucene.analysis.de.GermanAnalyzer;
 import org.apache.lucene.analysis.fr.FrenchAnalyzer;
@@ -33,8 +32,6 @@ import org.elasticsearch.legacy.common.settings.Settings;
 import org.elasticsearch.legacy.env.Environment;
 import org.elasticsearch.legacy.index.Index;
 import org.elasticsearch.legacy.index.settings.IndexSettings;
-
-import java.util.Set;
 
 /**
  * Creates a SnowballAnalyzer initialized with stopwords and Snowball filter. Only

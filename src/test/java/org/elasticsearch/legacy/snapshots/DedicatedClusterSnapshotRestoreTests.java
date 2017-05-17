@@ -38,7 +38,6 @@ import org.elasticsearch.legacy.common.unit.TimeValue;
 import org.elasticsearch.legacy.index.store.support.AbstractIndexStore;
 import org.elasticsearch.legacy.snapshots.mockstore.MockRepositoryModule;
 import org.elasticsearch.legacy.test.junit.annotations.TestLogging;
-import org.elasticsearch.legacy.test.store.MockDirectoryHelper;
 import org.elasticsearch.legacy.threadpool.ThreadPool;
 import org.junit.Ignore;
 import org.junit.Test;

@@ -58,9 +58,9 @@ public class SimpleAllMapperTests extends ElasticsearchTestCase {
 
     @Test
     public void testSimpleAllMappers() throws Exception {
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/all/mapping.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/all/mapping.json");
         DocumentMapper docMapper = MapperTestUtils.newParser().parse(mapping);
-        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/index/mapper/all/test1.json");
+        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/legacy/index/mapper/all/test1.json");
         Document doc = docMapper.parse(new BytesArray(json)).rootDoc();
         AllField field = (AllField) doc.getField("_all");
         // One field is boosted so we should see AllTokenStream used:
@@ -77,9 +77,9 @@ public class SimpleAllMapperTests extends ElasticsearchTestCase {
 
     @Test
     public void testAllMappersNoBoost() throws Exception {
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/all/noboost-mapping.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/all/noboost-mapping.json");
         DocumentMapper docMapper = MapperTestUtils.newParser().parse(mapping);
-        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/index/mapper/all/test1.json");
+        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/legacy/index/mapper/all/test1.json");
         Document doc = docMapper.parse(new BytesArray(json)).rootDoc();
         AllField field = (AllField) doc.getField("_all");
         AllEntries allEntries = field.getAllEntries();
@@ -94,9 +94,9 @@ public class SimpleAllMapperTests extends ElasticsearchTestCase {
 
     @Test
     public void testAllMappersTermQuery() throws Exception {
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/all/mapping_omit_positions_on_all.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/all/mapping_omit_positions_on_all.json");
         DocumentMapper docMapper = MapperTestUtils.newParser().parse(mapping);
-        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/index/mapper/all/test1.json");
+        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/legacy/index/mapper/all/test1.json");
         Document doc = docMapper.parse(new BytesArray(json)).rootDoc();
         AllField field = (AllField) doc.getField("_all");
         AllEntries allEntries = field.getAllEntries();
@@ -113,9 +113,9 @@ public class SimpleAllMapperTests extends ElasticsearchTestCase {
     // #6187: make sure we see AllTermQuery even when offsets are indexed in the _all field:
     @Test
     public void testAllMappersWithOffsetsTermQuery() throws Exception {
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/all/mapping_offsets_on_all.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/all/mapping_offsets_on_all.json");
         DocumentMapper docMapper = MapperTestUtils.newParser().parse(mapping);
-        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/index/mapper/all/test1.json");
+        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/legacy/index/mapper/all/test1.json");
         Document doc = docMapper.parse(new BytesArray(json)).rootDoc();
         AllField field = (AllField) doc.getField("_all");
         // _all field indexes positions, and mapping has boosts, so we should see AllTokenStream:
@@ -133,9 +133,9 @@ public class SimpleAllMapperTests extends ElasticsearchTestCase {
     // #6187: if _all doesn't index positions then we never use AllTokenStream, even if some fields have boost
     @Test
     public void testBoostWithOmitPositions() throws Exception {
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/all/mapping_boost_omit_positions_on_all.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/all/mapping_boost_omit_positions_on_all.json");
         DocumentMapper docMapper = MapperTestUtils.newParser().parse(mapping);
-        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/index/mapper/all/test1.json");
+        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/legacy/index/mapper/all/test1.json");
         Document doc = docMapper.parse(new BytesArray(json)).rootDoc();
         AllField field = (AllField) doc.getField("_all");
         // _all field omits positions, so we should not get AllTokenStream even though fields are boosted
@@ -145,9 +145,9 @@ public class SimpleAllMapperTests extends ElasticsearchTestCase {
     // #6187: if no fields were boosted, we shouldn't use AllTokenStream
     @Test
     public void testNoBoost() throws Exception {
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/all/noboost-mapping.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/all/noboost-mapping.json");
         DocumentMapper docMapper = MapperTestUtils.newParser().parse(mapping);
-        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/index/mapper/all/test1.json");
+        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/legacy/index/mapper/all/test1.json");
         Document doc = docMapper.parse(new BytesArray(json)).rootDoc();
         AllField field = (AllField) doc.getField("_all");
         // no fields have boost, so we should not see AllTokenStream:
@@ -157,12 +157,12 @@ public class SimpleAllMapperTests extends ElasticsearchTestCase {
 
     @Test
     public void testSimpleAllMappersWithReparse() throws Exception {
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/all/mapping.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/all/mapping.json");
         DocumentMapper docMapper = MapperTestUtils.newParser().parse(mapping);
         String builtMapping = docMapper.mappingSource().string();
         // reparse it
         DocumentMapper builtDocMapper = MapperTestUtils.newParser().parse(builtMapping);
-        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/index/mapper/all/test1.json");
+        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/legacy/index/mapper/all/test1.json");
         Document doc = builtDocMapper.parse(new BytesArray(json)).rootDoc();
 
         AllField field = (AllField) doc.getField("_all");
@@ -176,9 +176,9 @@ public class SimpleAllMapperTests extends ElasticsearchTestCase {
 
     @Test
     public void testSimpleAllMappersWithStore() throws Exception {
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/all/store-mapping.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/all/store-mapping.json");
         DocumentMapper docMapper = MapperTestUtils.newParser().parse(mapping);
-        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/index/mapper/all/test1.json");
+        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/legacy/index/mapper/all/test1.json");
         Document doc = docMapper.parse(new BytesArray(json)).rootDoc();
         AllField field = (AllField) doc.getField("_all");
         AllEntries allEntries = field.getAllEntries();
@@ -193,12 +193,12 @@ public class SimpleAllMapperTests extends ElasticsearchTestCase {
 
     @Test
     public void testSimpleAllMappersWithReparseWithStore() throws Exception {
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/all/store-mapping.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/all/store-mapping.json");
         DocumentMapper docMapper = MapperTestUtils.newParser().parse(mapping);
         String builtMapping = docMapper.mappingSource().string();
         // reparse it
         DocumentMapper builtDocMapper = MapperTestUtils.newParser().parse(builtMapping);
-        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/index/mapper/all/test1.json");
+        byte[] json = copyToBytesFromClasspath("/org/elasticsearch/legacy/index/mapper/all/test1.json");
         Document doc = builtDocMapper.parse(new BytesArray(json)).rootDoc();
 
         AllField field = (AllField) doc.getField("_all");
@@ -331,7 +331,7 @@ public class SimpleAllMapperTests extends ElasticsearchTestCase {
 
     @Test
     public void testMultiField_includeInAllSetToFalse() throws IOException {
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/all/multifield-mapping_include_in_all_set_to_false.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/all/multifield-mapping_include_in_all_set_to_false.json");
         DocumentMapper docMapper = MapperTestUtils.newParser().parse(mapping);
 
         XContentBuilder builder = XContentFactory.jsonBuilder();
@@ -351,7 +351,7 @@ public class SimpleAllMapperTests extends ElasticsearchTestCase {
 
     @Test
     public void testMultiField_defaults() throws IOException {
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/all/multifield-mapping_default.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/all/multifield-mapping_default.json");
         DocumentMapper docMapper = MapperTestUtils.newParser().parse(mapping);
 
         XContentBuilder builder = XContentFactory.jsonBuilder();
@@ -372,21 +372,21 @@ public class SimpleAllMapperTests extends ElasticsearchTestCase {
 
     @Test(expected = MapperParsingException.class)
     public void testMisplacedTypeInRoot() throws IOException {
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/all/misplaced_type_in_root.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/all/misplaced_type_in_root.json");
         DocumentMapper docMapper = MapperTestUtils.newParser().parse("test", mapping);
     }
 
     // related to https://github.com/elasticsearch/elasticsearch/issues/5864
     @Test(expected = MapperParsingException.class)
     public void testMistypedTypeInRoot() throws IOException {
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/all/mistyped_type_in_root.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/all/mistyped_type_in_root.json");
         DocumentMapper docMapper = MapperTestUtils.newParser().parse("test", mapping);
     }
 
     // issue https://github.com/elasticsearch/elasticsearch/issues/5864
     @Test(expected = MapperParsingException.class)
     public void testMisplacedMappingAsRoot() throws IOException {
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/all/misplaced_mapping_key_in_root.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/all/misplaced_mapping_key_in_root.json");
         DocumentMapper docMapper = MapperTestUtils.newParser().parse("test", mapping);
     }
 
@@ -394,13 +394,13 @@ public class SimpleAllMapperTests extends ElasticsearchTestCase {
     // test that RootObjectMapping still works
     @Test
     public void testRootObjectMapperPropertiesDoNotCauseException() throws IOException {
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/all/type_dynamic_template_mapping.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/all/type_dynamic_template_mapping.json");
         MapperTestUtils.newParser().parse("test", mapping);
-        mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/all/type_dynamic_date_formats_mapping.json");
+        mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/all/type_dynamic_date_formats_mapping.json");
         MapperTestUtils.newParser().parse("test", mapping);
-        mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/all/type_date_detection_mapping.json");
+        mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/all/type_date_detection_mapping.json");
         MapperTestUtils.newParser().parse("test", mapping);
-        mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/all/type_numeric_detection_mapping.json");
+        mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/all/type_numeric_detection_mapping.json");
         MapperTestUtils.newParser().parse("test", mapping);
     }
 

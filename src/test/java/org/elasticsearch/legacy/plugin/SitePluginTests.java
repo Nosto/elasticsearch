@@ -45,7 +45,7 @@ public class SitePluginTests extends ElasticsearchIntegrationTest {
     @Override
     protected Settings nodeSettings(int nodeOrdinal) {
         try {
-            File pluginDir = new File(SitePluginTests.class.getResource("/org/elasticsearch/plugin").toURI());
+            File pluginDir = new File(SitePluginTests.class.getResource("/org/elasticsearch/legacy/plugin").toURI());
             return settingsBuilder()
                     .put(super.nodeSettings(nodeOrdinal))
                     .put("path.plugins", pluginDir.getAbsolutePath())

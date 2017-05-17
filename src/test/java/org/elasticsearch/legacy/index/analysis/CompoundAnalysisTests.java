@@ -108,10 +108,10 @@ public class CompoundAnalysisTests extends ElasticsearchTestCase {
     }
 
     private Settings getJsonSettings() {
-        return settingsBuilder().loadFromClasspath("org/elasticsearch/index/analysis/test1.json").build();
+        return settingsBuilder().loadFromClasspath("org/elasticsearch/legacy/index/analysis/test1.json").build();
     }
 
     private Settings getYamlSettings() {
-        return settingsBuilder().loadFromClasspath("org/elasticsearch/index/analysis/test1.yml").build();
+        return settingsBuilder().loadFromClasspath("org/elasticsearch/legacy/index/analysis/test1.yml").build();
     }
 }

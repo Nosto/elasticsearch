@@ -20,7 +20,6 @@
 package org.elasticsearch.legacy.monitor.jvm;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
 import org.elasticsearch.legacy.ElasticsearchException;
 import org.elasticsearch.legacy.common.collect.MapBuilder;
 import org.elasticsearch.legacy.common.component.AbstractLifecycleComponent;
@@ -35,7 +34,6 @@ import java.util.Set;
 import java.util.concurrent.ScheduledFuture;
 
 import static org.elasticsearch.legacy.common.unit.TimeValue.timeValueSeconds;
-import static org.elasticsearch.legacy.monitor.jvm.DeadlockAnalyzer.deadlockAnalyzer;
 import static org.elasticsearch.legacy.monitor.jvm.JvmStats.GarbageCollector;
 import static org.elasticsearch.legacy.monitor.jvm.JvmStats.jvmStats;
 

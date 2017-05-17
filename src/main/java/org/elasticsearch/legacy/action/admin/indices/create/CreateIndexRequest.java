@@ -52,7 +52,7 @@ import static org.elasticsearch.legacy.common.settings.ImmutableSettings.writeSe
 /**
  * A request to create an index. Best created with {@link org.elasticsearch.client.Requests#createIndexRequest(String)}.
  * <p/>
- * <p>The index created can optionally be created with {@link #settings(org.elasticsearch.legacy.common.settings.Settings)}.
+ * <p>The index created can optionally be created with {@link #settings(Settings)}.
  *
  * @see org.elasticsearch.client.IndicesAdminClient#create(CreateIndexRequest)
  * @see org.elasticsearch.client.Requests#createIndexRequest(String)

@@ -49,7 +49,7 @@ public class PluginLuceneCheckerTests extends ElasticsearchIntegrationTest {
                 settingsBuilder().put("plugins.check_lucene", false)
                         .put("plugins." + PluginsService.ES_PLUGIN_PROPERTIES_FILE_KEY, "es-plugin-test.properties")
                         .put("plugins." + PluginsService.LOAD_PLUGIN_FROM_CLASSPATH, true).build(),
-                "/org/elasticsearch/plugin/lucene/");
+                "/org/elasticsearch/legacy/plugin/lucene/");
         logger.info("--> server {} started" + serverNodeId);
 
         NodesInfoResponse response = client().admin().cluster().prepareNodesInfo().clear().setPlugins(true).execute().actionGet();
@@ -74,7 +74,7 @@ public class PluginLuceneCheckerTests extends ElasticsearchIntegrationTest {
                 settingsBuilder().put("plugins.check_lucene", true)
                         .put("plugins." + PluginsService.ES_PLUGIN_PROPERTIES_FILE_KEY, "es-plugin-test.properties")
                         .put("plugins." + PluginsService.LOAD_PLUGIN_FROM_CLASSPATH, true).build(),
-                "/org/elasticsearch/plugin/lucene/");
+                "/org/elasticsearch/legacy/plugin/lucene/");
         logger.info("--> server {} started" + serverNodeId);
 
         NodesInfoResponse response = client().admin().cluster().prepareNodesInfo().clear().setPlugins(true).execute().actionGet();

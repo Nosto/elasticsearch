@@ -36,7 +36,7 @@ import static org.hamcrest.Matchers.instanceOf;
 
 public class KeepFilterFactoryTests extends ElasticsearchTokenStreamTestCase {
 
-    private static final String RESOURCE = "org/elasticsearch/index/analysis/keep_analysis.json";
+    private static final String RESOURCE = "org/elasticsearch/legacy/index/analysis/keep_analysis.json";
 
 
     @Test

@@ -56,7 +56,6 @@ import org.elasticsearch.legacy.client.Requests;
 import org.elasticsearch.legacy.cluster.ClusterService;
 import org.elasticsearch.legacy.cluster.metadata.MappingMetaData;
 import org.elasticsearch.legacy.cluster.metadata.MetaData;
-import org.elasticsearch.legacy.cluster.service.PendingClusterTask;
 import org.elasticsearch.legacy.common.Nullable;
 import org.elasticsearch.legacy.common.Priority;
 import org.elasticsearch.legacy.common.Strings;

@@ -19,9 +19,7 @@
 package org.elasticsearch.legacy.index.query;
 
 import com.google.common.collect.Maps;
-import org.elasticsearch.legacy.ElasticsearchException;
 import org.elasticsearch.legacy.action.index.IndexRequestBuilder;
-import org.elasticsearch.legacy.action.index.IndexResponse;
 import org.elasticsearch.legacy.action.indexedscripts.delete.DeleteIndexedScriptResponse;
 import org.elasticsearch.legacy.action.indexedscripts.get.GetIndexedScriptResponse;
 import org.elasticsearch.legacy.action.indexedscripts.put.PutIndexedScriptResponse;

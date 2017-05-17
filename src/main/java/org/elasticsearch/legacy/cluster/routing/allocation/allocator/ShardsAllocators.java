@@ -21,7 +21,6 @@ package org.elasticsearch.legacy.cluster.routing.allocation.allocator;
 
 import org.elasticsearch.legacy.cluster.routing.MutableShardRouting;
 import org.elasticsearch.legacy.cluster.routing.RoutingNode;
-import org.elasticsearch.legacy.cluster.routing.RoutingNodes;
 import org.elasticsearch.legacy.cluster.routing.allocation.FailedRerouteAllocation;
 import org.elasticsearch.legacy.cluster.routing.allocation.RoutingAllocation;
 import org.elasticsearch.legacy.cluster.routing.allocation.StartedRerouteAllocation;

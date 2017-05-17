@@ -18,18 +18,14 @@
  */
 package org.elasticsearch.legacy.bwcompat;
 
-import com.carrotsearch.randomizedtesting.LifecycleScope;
 import com.carrotsearch.randomizedtesting.generators.RandomPicks;
 import org.apache.lucene.util.English;
 import org.elasticsearch.legacy.ElasticsearchIllegalArgumentException;
 import org.elasticsearch.legacy.Version;
 import org.elasticsearch.legacy.action.admin.cluster.health.ClusterHealthStatus;
-import org.elasticsearch.legacy.action.admin.cluster.snapshots.create.CreateSnapshotResponse;
-import org.elasticsearch.legacy.action.admin.cluster.snapshots.restore.RestoreSnapshotResponse;
 import org.elasticsearch.legacy.action.admin.indices.settings.get.GetSettingsResponse;
 import org.elasticsearch.legacy.action.count.CountResponse;
 import org.elasticsearch.legacy.action.get.GetResponse;
-import org.elasticsearch.legacy.action.index.IndexRequest;
 import org.elasticsearch.legacy.action.index.IndexRequestBuilder;
 import org.elasticsearch.legacy.cluster.ClusterState;
 import org.elasticsearch.legacy.cluster.metadata.IndexMetaData;
@@ -47,7 +43,6 @@ import org.elasticsearch.legacy.index.VersionType;
 import org.elasticsearch.legacy.index.mapper.MapperParsingException;
 import org.elasticsearch.legacy.index.mapper.internal.FieldNamesFieldMapper;
 import org.elasticsearch.legacy.index.query.QueryBuilders;
-import org.elasticsearch.legacy.snapshots.SnapshotState;
 import org.elasticsearch.legacy.test.ElasticsearchBackwardsCompatIntegrationTest;
 import org.junit.Test;
 

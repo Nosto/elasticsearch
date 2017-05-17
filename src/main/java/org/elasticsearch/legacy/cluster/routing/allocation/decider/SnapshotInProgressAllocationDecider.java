@@ -64,7 +64,7 @@ public class SnapshotInProgressAllocationDecider extends AllocationDecider {
     /**
      * Creates a new {@link org.elasticsearch.legacy.cluster.routing.allocation.decider.SnapshotInProgressAllocationDecider} instance from given settings
      *
-     * @param settings {@link org.elasticsearch.legacy.common.settings.Settings} to use
+     * @param settings {@link Settings} to use
      */
     public SnapshotInProgressAllocationDecider(Settings settings) {
         this(settings, new NodeSettingsService(settings));

@@ -20,7 +20,6 @@
 package org.elasticsearch.legacy.cluster.routing.operation.plain;
 
 import com.google.common.collect.Lists;
-import org.apache.lucene.util.CollectionUtil;
 import org.elasticsearch.legacy.ElasticsearchIllegalArgumentException;
 import org.elasticsearch.legacy.cluster.ClusterState;
 import org.elasticsearch.legacy.cluster.metadata.IndexMetaData;

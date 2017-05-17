@@ -123,7 +123,7 @@ public class CommonGramsTokenFilterFactoryTests extends ElasticsearchTokenStream
 
     @Test
     public void testCommonGramsAnalysis() throws IOException {
-        Settings settings = ImmutableSettings.settingsBuilder().loadFromClasspath("org/elasticsearch/index/analysis/commongrams/commongrams.json").build();
+        Settings settings = ImmutableSettings.settingsBuilder().loadFromClasspath("org/elasticsearch/legacy/index/analysis/commongrams/commongrams.json").build();
         {
             AnalysisService analysisService = AnalysisTestsHelper.createAnalysisServiceFromSettings(settings);
             Analyzer analyzer = analysisService.analyzer("commongramsAnalyzer").analyzer();
@@ -196,7 +196,7 @@ public class CommonGramsTokenFilterFactoryTests extends ElasticsearchTokenStream
 
     @Test
     public void testQueryModeCommonGramsAnalysis() throws IOException {
-        Settings settings = ImmutableSettings.settingsBuilder().loadFromClasspath("org/elasticsearch/index/analysis/commongrams/commongrams_query_mode.json").build();
+        Settings settings = ImmutableSettings.settingsBuilder().loadFromClasspath("org/elasticsearch/legacy/index/analysis/commongrams/commongrams_query_mode.json").build();
         {
             AnalysisService analysisService = AnalysisTestsHelper.createAnalysisServiceFromSettings(settings);
             Analyzer analyzer = analysisService.analyzer("commongramsAnalyzer").analyzer();

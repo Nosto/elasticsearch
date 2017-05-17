@@ -33,7 +33,7 @@ public class MultiSearchRequestTests extends ElasticsearchTestCase {
 
     @Test
     public void simpleAdd() throws Exception {
-        byte[] data = Streams.copyToBytesFromClasspath("/org/elasticsearch/action/search/simple-msearch1.json");
+        byte[] data = Streams.copyToBytesFromClasspath("/org/elasticsearch/legacy/action/search/simple-msearch1.json");
         MultiSearchRequest request = new MultiSearchRequest().add(data, 0, data.length, false, null, null, null);
         assertThat(request.requests().size(), equalTo(5));
         assertThat(request.requests().get(0).indices()[0], equalTo("test"));
@@ -53,7 +53,7 @@ public class MultiSearchRequestTests extends ElasticsearchTestCase {
 
     @Test
     public void simpleAdd2() throws Exception {
-        byte[] data = Streams.copyToBytesFromClasspath("/org/elasticsearch/action/search/simple-msearch2.json");
+        byte[] data = Streams.copyToBytesFromClasspath("/org/elasticsearch/legacy/action/search/simple-msearch2.json");
         MultiSearchRequest request = new MultiSearchRequest().add(data, 0, data.length, false, null, null, null);
         assertThat(request.requests().size(), equalTo(5));
         assertThat(request.requests().get(0).indices()[0], equalTo("test"));
@@ -71,7 +71,7 @@ public class MultiSearchRequestTests extends ElasticsearchTestCase {
     
     @Test
     public void simpleAdd3() throws Exception {
-        byte[] data = Streams.copyToBytesFromClasspath("/org/elasticsearch/action/search/simple-msearch3.json");
+        byte[] data = Streams.copyToBytesFromClasspath("/org/elasticsearch/legacy/action/search/simple-msearch3.json");
         MultiSearchRequest request = new MultiSearchRequest().add(data, 0, data.length, false, null, null, null);
         assertThat(request.requests().size(), equalTo(4));
         assertThat(request.requests().get(0).indices()[0], equalTo("test0"));

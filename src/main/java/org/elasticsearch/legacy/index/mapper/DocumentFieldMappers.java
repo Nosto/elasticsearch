@@ -19,11 +19,9 @@
 
 package org.elasticsearch.legacy.index.mapper;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.UnmodifiableIterator;
 import org.apache.lucene.analysis.Analyzer;
 import org.elasticsearch.legacy.common.Nullable;
-import org.elasticsearch.legacy.common.collect.ImmutableOpenMap;
 import org.elasticsearch.legacy.common.collect.UpdateInPlaceMap;
 import org.elasticsearch.legacy.common.settings.Settings;
 import org.elasticsearch.legacy.index.analysis.FieldNameAnalyzer;

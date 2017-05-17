@@ -25,7 +25,6 @@ import org.elasticsearch.legacy.action.admin.indices.mapping.put.PutMappingRespo
 import org.elasticsearch.legacy.action.admin.indices.stats.IndicesStatsResponse;
 import org.elasticsearch.legacy.action.get.GetResponse;
 import org.elasticsearch.legacy.action.index.IndexResponse;
-import org.elasticsearch.legacy.cluster.metadata.MappingMetaData;
 import org.elasticsearch.legacy.common.settings.Settings;
 import org.elasticsearch.legacy.common.xcontent.XContentBuilder;
 import org.elasticsearch.legacy.common.xcontent.XContentFactory;

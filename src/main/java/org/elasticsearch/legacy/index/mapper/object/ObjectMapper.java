@@ -19,7 +19,6 @@
 
 package org.elasticsearch.legacy.index.mapper.object;
 
-import com.carrotsearch.hppc.cursors.ObjectObjectCursor;
 import com.google.common.collect.Iterables;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.index.IndexableField;
@@ -31,11 +30,9 @@ import org.elasticsearch.legacy.ElasticsearchIllegalStateException;
 import org.elasticsearch.legacy.ElasticsearchParseException;
 import org.elasticsearch.legacy.common.Nullable;
 import org.elasticsearch.legacy.common.Strings;
-import org.elasticsearch.legacy.common.collect.ImmutableOpenMap;
 import org.elasticsearch.legacy.common.collect.UpdateInPlaceMap;
 import org.elasticsearch.legacy.common.joda.FormatDateTimeFormatter;
 import org.elasticsearch.legacy.common.settings.Settings;
-import org.elasticsearch.legacy.common.util.CollectionUtils;
 import org.elasticsearch.legacy.common.xcontent.ToXContent;
 import org.elasticsearch.legacy.common.xcontent.XContentBuilder;
 import org.elasticsearch.legacy.common.xcontent.XContentParser;

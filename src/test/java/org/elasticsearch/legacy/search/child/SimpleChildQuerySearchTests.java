@@ -140,7 +140,7 @@ public class SimpleChildQuerySearchTests extends ElasticsearchIntegrationTest {
         client().prepareIndex("test", "foo", "1").setSource("foo", 1).get();
         client().prepareIndex("test", "test", "2").setSource("foo", 1).setParent("1").get();
         refresh();
-        String query = copyToStringFromClasspath("/org/elasticsearch/search/child/bool-query-with-empty-clauses.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/search/child/bool-query-with-empty-clauses.json");
         SearchResponse searchResponse = client().prepareSearch("test").setSource(query).get();
         assertNoFailures(searchResponse);
         assertThat(searchResponse.getHits().totalHits(), equalTo(1l));

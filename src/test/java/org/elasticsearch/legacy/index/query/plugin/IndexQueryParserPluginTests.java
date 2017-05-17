@@ -43,8 +43,6 @@ import org.elasticsearch.legacy.indices.fielddata.breaker.NoneCircuitBreakerServ
 import org.elasticsearch.legacy.indices.query.IndicesQueriesModule;
 import org.elasticsearch.legacy.script.ScriptModule;
 import org.elasticsearch.legacy.indices.fielddata.breaker.CircuitBreakerService;
-import org.elasticsearch.legacy.indices.query.IndicesQueriesModule;
-import org.elasticsearch.legacy.script.ScriptModule;
 import org.elasticsearch.legacy.test.ElasticsearchTestCase;
 import org.elasticsearch.legacy.threadpool.ThreadPool;
 import org.elasticsearch.legacy.threadpool.ThreadPoolModule;

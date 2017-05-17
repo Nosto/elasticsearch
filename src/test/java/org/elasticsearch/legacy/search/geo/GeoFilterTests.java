@@ -392,7 +392,7 @@ public class GeoFilterTests extends ElasticsearchIntegrationTest {
     @Test
     @Slow
     public void bulktest() throws Exception {
-        byte[] bulkAction = unZipData("/org/elasticsearch/search/geo/gzippedmap.gz");
+        byte[] bulkAction = unZipData("/org/elasticsearch/legacy/search/geo/gzippedmap.gz");
 
         String mapping = XContentFactory.jsonBuilder()
                 .startObject()

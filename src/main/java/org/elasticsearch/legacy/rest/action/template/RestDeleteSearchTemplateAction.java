@@ -18,7 +18,6 @@
  */
 package org.elasticsearch.legacy.rest.action.template;
 
-import org.elasticsearch.legacy.action.delete.DeleteRequest;
 import org.elasticsearch.legacy.action.delete.DeleteResponse;
 import org.elasticsearch.legacy.client.Client;
 import org.elasticsearch.legacy.common.inject.Inject;

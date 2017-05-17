@@ -21,12 +21,10 @@ package org.elasticsearch.legacy.index.mapper;
 
 import com.google.common.collect.*;
 import org.elasticsearch.legacy.common.Nullable;
-import org.elasticsearch.legacy.common.collect.ImmutableOpenMap;
 import org.elasticsearch.legacy.common.collect.UpdateInPlaceMap;
 import org.elasticsearch.legacy.common.regex.Regex;
 import org.elasticsearch.legacy.common.settings.Settings;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;

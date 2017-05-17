@@ -31,7 +31,7 @@ public class BulkIntegrationTests extends ElasticsearchIntegrationTest {
 
     @Test
     public void testBulkIndexCreatesMapping() throws Exception {
-        String bulkAction = copyToStringFromClasspath("/org/elasticsearch/action/bulk/bulk-log.json");
+        String bulkAction = copyToStringFromClasspath("/org/elasticsearch/legacy/action/bulk/bulk-log.json");
         BulkRequestBuilder bulkBuilder = new BulkRequestBuilder(client());
         bulkBuilder.add(bulkAction.getBytes(Charsets.UTF_8), 0, bulkAction.length(), true, null, null);
         bulkBuilder.get();

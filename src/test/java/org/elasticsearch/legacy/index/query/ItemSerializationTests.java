@@ -134,7 +134,7 @@ public class ItemSerializationTests extends ElasticsearchTestCase {
     public void testSimpleItemSerializationFromFile() throws Exception {
         // test items from JSON
         List<MultiGetRequest.Item> itemsFromJSON = testItemsFromJSON(
-                copyToStringFromClasspath("/org/elasticsearch/index/query/items.json"));
+                copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/items.json"));
 
         // create builder from items
         XContentBuilder builder = XContentFactory.jsonBuilder();

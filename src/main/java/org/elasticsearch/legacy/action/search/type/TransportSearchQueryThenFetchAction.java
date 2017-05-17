@@ -23,7 +23,6 @@ import com.carrotsearch.hppc.IntArrayList;
 import org.apache.lucene.search.ScoreDoc;
 import org.elasticsearch.legacy.action.ActionListener;
 import org.elasticsearch.legacy.action.search.ReduceSearchPhaseException;
-import org.elasticsearch.legacy.action.search.SearchPhaseExecutionException;
 import org.elasticsearch.legacy.action.search.SearchRequest;
 import org.elasticsearch.legacy.action.search.SearchResponse;
 import org.elasticsearch.legacy.cluster.ClusterService;

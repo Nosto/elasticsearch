@@ -20,11 +20,9 @@
 package org.elasticsearch.legacy.index.deletionpolicy;
 
 import org.apache.lucene.index.IndexCommit;
-import org.apache.lucene.index.IndexDeletionPolicy;
 import org.elasticsearch.legacy.common.inject.Inject;
 import org.elasticsearch.legacy.common.settings.Settings;
 import org.elasticsearch.legacy.index.settings.IndexSettings;
-import org.elasticsearch.legacy.index.shard.AbstractIndexShardComponent;
 import org.elasticsearch.legacy.index.shard.ShardId;
 
 import java.io.IOException;

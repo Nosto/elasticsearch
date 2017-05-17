@@ -58,7 +58,7 @@ public class SynonymsAnalysisTest extends ElasticsearchTestCase {
     @Test
     public void testSynonymsAnalysis() throws IOException {
 
-        Settings settings = settingsBuilder().loadFromClasspath("org/elasticsearch/index/analysis/synonyms/synonyms.json").build();
+        Settings settings = settingsBuilder().loadFromClasspath("org/elasticsearch/legacy/index/analysis/synonyms/synonyms.json").build();
 
         Index index = new Index("test");
 

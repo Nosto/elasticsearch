@@ -38,7 +38,7 @@ public class PathMapperTests extends ElasticsearchTestCase {
 
     @Test
     public void testPathMapping() throws IOException {
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/path/test-mapping.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/path/test-mapping.json");
         DocumentMapper docMapper = MapperTestUtils.newParser().parse(mapping);
 
         assertThat(docMapper.mappers().indexName("first1"), notNullValue());

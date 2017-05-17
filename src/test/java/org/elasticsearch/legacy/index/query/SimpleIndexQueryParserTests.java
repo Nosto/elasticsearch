@@ -96,9 +96,9 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
         injector = createIndex("test", settings).injector();
 
         injector.getInstance(IndexFieldDataService.class).setIndexService((new StubIndexService(injector.getInstance(MapperService.class))));
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/query/mapping.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/mapping.json");
         injector.getInstance(MapperService.class).merge("person", new CompressedString(mapping), true);
-        injector.getInstance(MapperService.class).documentMapper("person").parse(new BytesArray(copyToBytesFromClasspath("/org/elasticsearch/index/query/data.json")));
+        injector.getInstance(MapperService.class).documentMapper("person").parse(new BytesArray(copyToBytesFromClasspath("/org/elasticsearch/legacy/index/query/data.json")));
 
         queryParser = injector.getInstance(IndexQueryParserService.class);
     }
@@ -126,7 +126,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testQueryString() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/query.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/query.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(TermQuery.class));
         TermQuery termQuery = (TermQuery) parsedQuery;
@@ -172,7 +172,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testQueryStringFields1() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/query-fields1.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/query-fields1.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(BooleanQuery.class));
         BooleanQuery bQuery = (BooleanQuery) parsedQuery;
@@ -184,7 +184,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testQueryStringFieldsMatch() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/query-fields-match.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/query-fields-match.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(BooleanQuery.class));
         BooleanQuery bQuery = (BooleanQuery) parsedQuery;
@@ -207,7 +207,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testQueryStringFields2() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/query-fields2.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/query-fields2.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(DisjunctionMaxQuery.class));
         DisjunctionMaxQuery disMaxQuery = (DisjunctionMaxQuery) parsedQuery;
@@ -232,7 +232,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testQueryStringFields3() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/query-fields3.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/query-fields3.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(DisjunctionMaxQuery.class));
         DisjunctionMaxQuery disMaxQuery = (DisjunctionMaxQuery) parsedQuery;
@@ -255,7 +255,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testMatchAll() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/matchAll.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/matchAll.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(MatchAllDocsQuery.class));
         MatchAllDocsQuery matchAllDocsQuery = (MatchAllDocsQuery) parsedQuery;
@@ -265,7 +265,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testMatchAllEmpty1() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/match_all_empty1.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/match_all_empty1.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, equalTo(Queries.newMatchAllQuery()));
         assertThat(parsedQuery, not(sameInstance(Queries.newMatchAllQuery())));
@@ -274,7 +274,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testMatchAllEmpty2() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/match_all_empty2.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/match_all_empty2.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, equalTo(Queries.newMatchAllQuery()));
         assertThat(parsedQuery, not(sameInstance(Queries.newMatchAllQuery())));
@@ -284,7 +284,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testStarColonStar() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/starColonStar.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/starColonStar.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(ConstantScoreQuery.class));
         ConstantScoreQuery constantScoreQuery = (ConstantScoreQuery) parsedQuery;
@@ -315,7 +315,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testDisMax() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/disMax.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/disMax.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(DisjunctionMaxQuery.class));
         DisjunctionMaxQuery disjunctionMaxQuery = (DisjunctionMaxQuery) parsedQuery;
@@ -336,7 +336,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testDisMax2() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/disMax2.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/disMax2.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(DisjunctionMaxQuery.class));
         DisjunctionMaxQuery disjunctionMaxQuery = (DisjunctionMaxQuery) parsedQuery;
@@ -365,7 +365,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testTermQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/term.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/term.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(NumericRangeQuery.class));
         NumericRangeQuery fieldQuery = (NumericRangeQuery) parsedQuery;
@@ -387,7 +387,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testFuzzyQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/fuzzy.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/fuzzy.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(FuzzyQuery.class));
         FuzzyQuery fuzzyQuery = (FuzzyQuery) parsedQuery;
@@ -409,7 +409,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testFuzzyQueryWithFields() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/fuzzy-with-fields.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/fuzzy-with-fields.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(FuzzyQuery.class));
         FuzzyQuery fuzzyQuery = (FuzzyQuery) parsedQuery;
@@ -422,7 +422,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testFuzzyQueryWithFields2() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/fuzzy-with-fields2.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/fuzzy-with-fields2.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(NumericRangeQuery.class));
         NumericRangeQuery fuzzyQuery = (NumericRangeQuery) parsedQuery;
@@ -446,7 +446,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testTermWithBoostQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/term-with-boost.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/term-with-boost.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(NumericRangeQuery.class));
         NumericRangeQuery fieldQuery = (NumericRangeQuery) parsedQuery;
@@ -470,7 +470,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testPrefixQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/prefix.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/prefix.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(PrefixQuery.class));
         PrefixQuery prefixQuery = (PrefixQuery) parsedQuery;
@@ -481,7 +481,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testPrefixBoostQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/prefix-boost.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/prefix-boost.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(PrefixQuery.class));
         PrefixQuery prefixQuery = (PrefixQuery) parsedQuery;
@@ -503,7 +503,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testPrefixFilteredQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/prefix-filter.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/prefix-filter.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
         XFilteredQuery filteredQuery = (XFilteredQuery) parsedQuery;
@@ -514,7 +514,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testPrefixNamedFilteredQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/prefix-filter-named.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/prefix-filter-named.json");
         ParsedQuery parsedQuery = queryParser.parse(query);
         assertThat(parsedQuery.namedFilters().containsKey("test"), equalTo(true));
         assertThat(parsedQuery.query(), instanceOf(XFilteredQuery.class));
@@ -536,7 +536,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testPrefixQueryBoostQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/prefix-with-boost.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/prefix-with-boost.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(PrefixQuery.class));
         PrefixQuery prefixQuery = (PrefixQuery) parsedQuery;
@@ -566,7 +566,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testRegexpQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/regexp.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/regexp.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(RegexpQuery.class));
         RegexpQuery regexpQuery = (RegexpQuery) parsedQuery;
@@ -576,7 +576,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testRegexpFilteredQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/regexp-filter.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/regexp-filter.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
         Filter filter = ((XFilteredQuery) parsedQuery).getFilter();
@@ -589,7 +589,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testNamedRegexpFilteredQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/regexp-filter-named.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/regexp-filter-named.json");
         ParsedQuery parsedQuery = queryParser.parse(query);
         assertThat(parsedQuery.namedFilters().containsKey("test"), equalTo(true));
         assertThat(parsedQuery.query(), instanceOf(XFilteredQuery.class));
@@ -603,7 +603,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testRegexpWithFlagsFilteredQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/regexp-filter-flags.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/regexp-filter-flags.json");
         ParsedQuery parsedQuery = queryParser.parse(query);
         assertThat(parsedQuery.query(), instanceOf(XFilteredQuery.class));
         Filter filter = ((XFilteredQuery) parsedQuery.query()).getFilter();
@@ -617,7 +617,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testNamedAndCachedRegexpWithFlagsFilteredQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/regexp-filter-flags-named-cached.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/regexp-filter-flags-named-cached.json");
         ParsedQuery parsedQuery = queryParser.parse(query);
         assertThat(parsedQuery.query(), instanceOf(XFilteredQuery.class));
         Filter filter = ((XFilteredQuery) parsedQuery.query()).getFilter();
@@ -634,7 +634,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testRegexpBoostQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/regexp-boost.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/regexp-boost.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(RegexpQuery.class));
         RegexpQuery regexpQuery = (RegexpQuery) parsedQuery;
@@ -654,7 +654,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testWildcardQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/wildcard.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/wildcard.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(WildcardQuery.class));
         WildcardQuery wildcardQuery = (WildcardQuery) parsedQuery;
@@ -664,7 +664,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testWildcardBoostQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/wildcard-boost.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/wildcard-boost.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(WildcardQuery.class));
         WildcardQuery wildcardQuery = (WildcardQuery) parsedQuery;
@@ -689,7 +689,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testRangeQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/range.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/range.json");
         Query parsedQuery = queryParser.parse(query).query();
         // since age is automatically registered in data, we encode it as numeric
         assertThat(parsedQuery, instanceOf(NumericRangeQuery.class));
@@ -704,7 +704,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testRange2Query() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/range2.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/range2.json");
         Query parsedQuery = queryParser.parse(query).query();
         // since age is automatically registered in data, we encode it as numeric
         assertThat(parsedQuery, instanceOf(NumericRangeQuery.class));
@@ -735,7 +735,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testRangeFilteredQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/range-filter.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/range-filter.json");
         Query parsedQuery = queryParser.parse(query).query();
         // since age is automatically registered in data, we encode it as numeric
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
@@ -752,7 +752,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testRangeNamedFilteredQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/range-filter-named.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/range-filter-named.json");
         ParsedQuery parsedQuery = queryParser.parse(query);
         assertThat(parsedQuery.namedFilters().containsKey("test"), equalTo(true));
         assertThat(parsedQuery.query(), instanceOf(XFilteredQuery.class));
@@ -799,7 +799,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testNumericRangeFilteredQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/numeric_range-filter.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/numeric_range-filter.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
         Filter filter = ((XFilteredQuery) parsedQuery).getFilter();
@@ -849,7 +849,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testBoolFilteredQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/bool-filter.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/bool-filter.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
         XFilteredQuery filteredQuery = (XFilteredQuery) parsedQuery;
@@ -895,7 +895,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testAndFilteredQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/and-filter.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/and-filter.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
         XFilteredQuery filteredQuery = (XFilteredQuery) parsedQuery;
@@ -909,7 +909,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testAndNamedFilteredQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/and-filter-named.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/and-filter-named.json");
         ParsedQuery parsedQuery = queryParser.parse(query);
         assertThat(parsedQuery.namedFilters().containsKey("test"), equalTo(true));
         assertThat(parsedQuery.query(), instanceOf(XFilteredQuery.class));
@@ -924,7 +924,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testAndFilteredQuery2() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/and-filter2.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/and-filter2.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
         XFilteredQuery filteredQuery = (XFilteredQuery) parsedQuery;
@@ -951,7 +951,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testOrFilteredQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/or-filter.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/or-filter.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
         XFilteredQuery filteredQuery = (XFilteredQuery) parsedQuery;
@@ -965,7 +965,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testOrFilteredQuery2() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/or-filter2.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/or-filter2.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
         XFilteredQuery filteredQuery = (XFilteredQuery) parsedQuery;
@@ -990,7 +990,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testNotFilteredQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/not-filter.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/not-filter.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
         XFilteredQuery filteredQuery = (XFilteredQuery) parsedQuery;
@@ -1003,7 +1003,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testNotFilteredQuery2() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/not-filter2.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/not-filter2.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
         XFilteredQuery filteredQuery = (XFilteredQuery) parsedQuery;
@@ -1016,7 +1016,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testNotFilteredQuery3() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/not-filter3.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/not-filter3.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
         XFilteredQuery filteredQuery = (XFilteredQuery) parsedQuery;
@@ -1036,7 +1036,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testBoostingQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/boosting-query.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/boosting-query.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(BoostingQuery.class));
     }
@@ -1044,7 +1044,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testQueryStringFuzzyNumeric() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/query2.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/query2.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(NumericRangeQuery.class));
         NumericRangeQuery fuzzyQuery = (NumericRangeQuery) parsedQuery;
@@ -1079,7 +1079,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testBoolQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/bool.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/bool.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(BooleanQuery.class));
         BooleanQuery booleanQuery = (BooleanQuery) parsedQuery;
@@ -1120,7 +1120,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testTermsQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/terms-query.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/terms-query.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(BooleanQuery.class));
         BooleanQuery booleanQuery = (BooleanQuery) parsedQuery;
@@ -1168,7 +1168,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testFilteredQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/filtered-query.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/filtered-query.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
         XFilteredQuery filteredQuery = (XFilteredQuery) parsedQuery;
@@ -1179,7 +1179,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testFilteredQuery2() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/filtered-query2.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/filtered-query2.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
         XFilteredQuery filteredQuery = (XFilteredQuery) parsedQuery;
@@ -1190,7 +1190,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testFilteredQuery3() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/filtered-query3.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/filtered-query3.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
         XFilteredQuery filteredQuery = (XFilteredQuery) parsedQuery;
@@ -1207,7 +1207,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testFilteredQuery4() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/filtered-query4.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/filtered-query4.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
         XFilteredQuery filteredQuery = (XFilteredQuery) parsedQuery;
@@ -1221,7 +1221,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testLimitFilter() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/limit-filter.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/limit-filter.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
         XFilteredQuery filteredQuery = (XFilteredQuery) parsedQuery;
@@ -1235,7 +1235,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testTermFilterQuery() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/term-filter.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/term-filter.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
         XFilteredQuery filteredQuery = (XFilteredQuery) parsedQuery;
@@ -1248,7 +1248,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testTermNamedFilterQuery() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/term-filter-named.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/term-filter-named.json");
         ParsedQuery parsedQuery = queryParser.parse(query);
         assertThat(parsedQuery.namedFilters().containsKey("test"), equalTo(true));
         assertThat(parsedQuery.query(), instanceOf(XFilteredQuery.class));
@@ -1275,7 +1275,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testTermsFilterQuery() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/terms-filter.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/terms-filter.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
         XFilteredQuery filteredQuery = (XFilteredQuery) parsedQuery;
@@ -1288,7 +1288,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testTermsWithNameFilterQuery() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/terms-filter-named.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/terms-filter-named.json");
         ParsedQuery parsedQuery = queryParser.parse(query);
         assertThat(parsedQuery.namedFilters().containsKey("test"), equalTo(true));
         assertThat(parsedQuery.query(), instanceOf(XFilteredQuery.class));
@@ -1311,7 +1311,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testConstantScoreQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/constantScore-query.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/constantScore-query.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -1352,7 +1352,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testSpanTermQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/spanTerm.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/spanTerm.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(SpanTermQuery.class));
         SpanTermQuery termQuery = (SpanTermQuery) parsedQuery;
@@ -1374,7 +1374,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testSpanNotQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/spanNot.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/spanNot.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(SpanNotQuery.class));
         SpanNotQuery spanNotQuery = (SpanNotQuery) parsedQuery;
@@ -1397,7 +1397,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testSpanFirstQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/spanFirst.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/spanFirst.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(SpanFirstQuery.class));
         SpanFirstQuery spanFirstQuery = (SpanFirstQuery) parsedQuery;
@@ -1422,7 +1422,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testSpanNearQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/spanNear.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/spanNear.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(SpanNearQuery.class));
         SpanNearQuery spanNearQuery = (SpanNearQuery) parsedQuery;
@@ -1436,7 +1436,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testFieldMaskingSpanQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/spanFieldMaskingTerm.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/spanFieldMaskingTerm.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(SpanNearQuery.class));
         SpanNearQuery spanNearQuery = (SpanNearQuery) parsedQuery;
@@ -1463,7 +1463,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testSpanOrQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/spanOr.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/spanOr.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(SpanOrQuery.class));
         SpanOrQuery spanOrQuery = (SpanOrQuery) parsedQuery;
@@ -1476,7 +1476,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testSpanOrQuery2() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/spanOr2.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/spanOr2.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(SpanOrQuery.class));
         SpanOrQuery spanOrQuery = (SpanOrQuery) parsedQuery;
@@ -1489,7 +1489,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testSpanMultiTermWildcardQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/span-multi-term-wildcard.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/span-multi-term-wildcard.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(SpanMultiTermQueryWrapper.class));
         WildcardQuery expectedWrapped = new WildcardQuery(new Term("user", "ki*y"));
@@ -1501,7 +1501,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testSpanMultiTermPrefixQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/span-multi-term-prefix.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/span-multi-term-prefix.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(SpanMultiTermQueryWrapper.class));
         PrefixQuery expectedWrapped = new PrefixQuery(new Term("user", "ki"));
@@ -1513,7 +1513,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testSpanMultiTermFuzzyTermQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/span-multi-term-fuzzy-term.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/span-multi-term-fuzzy-term.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(SpanMultiTermQueryWrapper.class));
         SpanMultiTermQueryWrapper<MultiTermQuery> wrapper = (SpanMultiTermQueryWrapper<MultiTermQuery>) parsedQuery;
@@ -1523,7 +1523,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testSpanMultiTermFuzzyRangeQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/span-multi-term-fuzzy-range.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/span-multi-term-fuzzy-range.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(SpanMultiTermQueryWrapper.class));
         NumericRangeQuery<Long> expectedWrapped = NumericRangeQuery.newLongRange("age", NumberFieldMapper.Defaults.PRECISION_STEP_64_BIT, 7l, 17l, true, true);
@@ -1535,7 +1535,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testSpanMultiTermNumericRangeQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/span-multi-term-range-numeric.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/span-multi-term-range-numeric.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(SpanMultiTermQueryWrapper.class));
         NumericRangeQuery<Long> expectedWrapped = NumericRangeQuery.newLongRange("age", NumberFieldMapper.Defaults.PRECISION_STEP_64_BIT, 10l, 20l, true, false);
@@ -1547,7 +1547,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testSpanMultiTermTermRangeQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/span-multi-term-range-term.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/span-multi-term-range-term.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(SpanMultiTermQueryWrapper.class));
         TermRangeQuery expectedWrapped = TermRangeQuery.newStringRange("user", "alice", "bob", true, false);
@@ -1573,7 +1573,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testQueryFilter() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/query-filter.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/query-filter.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XFilteredQuery.class));
         XFilteredQuery filteredQuery = (XFilteredQuery) parsedQuery;
@@ -1588,7 +1588,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testFQueryFilter() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/fquery-filter.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/fquery-filter.json");
         ParsedQuery parsedQuery = queryParser.parse(query);
         assertThat(parsedQuery.namedFilters().containsKey("test"), equalTo(true));
         assertThat(parsedQuery.query(), instanceOf(XFilteredQuery.class));
@@ -1616,7 +1616,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testMoreLikeThis() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/mlt.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/mlt.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(MoreLikeThisQuery.class));
         MoreLikeThisQuery mltQuery = (MoreLikeThisQuery) parsedQuery;
@@ -1639,7 +1639,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
                 "test person 1 name.last", "test person 2 name.last", "test person 3 name.last", "test person 4 name.last"}));
 
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/mlt-items.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/mlt-items.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(BooleanQuery.class));
         BooleanQuery booleanQuery = (BooleanQuery) parsedQuery;
@@ -1729,7 +1729,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testFuzzyLikeThis() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/fuzzyLikeThis.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/fuzzyLikeThis.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(FuzzyLikeThisQuery.class));
 //        FuzzyLikeThisQuery fuzzyLikeThisQuery = (FuzzyLikeThisQuery) parsedQuery;
@@ -1746,7 +1746,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testFuzzyLikeThisField() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/fuzzyLikeThisField.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/fuzzyLikeThisField.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(FuzzyLikeThisQuery.class));
 //        FuzzyLikeThisQuery fuzzyLikeThisQuery = (FuzzyLikeThisQuery) parsedQuery;
@@ -1767,7 +1767,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testMoreLikeThisField() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/mltField.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/mltField.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(MoreLikeThisQuery.class));
         MoreLikeThisQuery mltQuery = (MoreLikeThisQuery) parsedQuery;
@@ -1780,7 +1780,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoDistanceFilterNamed() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_distance-named.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_distance-named.json");
         ParsedQuery parsedQuery = queryParser.parse(query);
         assertThat(parsedQuery.namedFilters().containsKey("test"), equalTo(true));
         assertThat(parsedQuery.query(), instanceOf(XConstantScoreQuery.class));
@@ -1795,7 +1795,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoDistanceFilter1() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_distance1.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_distance1.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -1809,7 +1809,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoDistanceFilter2() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_distance2.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_distance2.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -1823,7 +1823,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoDistanceFilter3() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_distance3.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_distance3.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -1837,7 +1837,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoDistanceFilter4() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_distance4.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_distance4.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -1851,7 +1851,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoDistanceFilter5() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_distance5.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_distance5.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -1865,7 +1865,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoDistanceFilter6() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_distance6.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_distance6.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -1879,7 +1879,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoDistanceFilter7() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_distance7.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_distance7.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -1893,7 +1893,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoDistanceFilter8() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_distance8.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_distance8.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -1907,7 +1907,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoDistanceFilter9() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_distance9.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_distance9.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -1921,7 +1921,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoDistanceFilter10() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_distance10.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_distance10.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -1935,7 +1935,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoDistanceFilter11() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_distance11.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_distance11.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -1949,7 +1949,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoDistanceFilter12() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_distance12.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_distance12.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -1963,7 +1963,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoBoundingBoxFilterNamed() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_boundingbox-named.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_boundingbox-named.json");
         ParsedQuery parsedQuery = queryParser.parse(query);
         assertThat(parsedQuery.query(), instanceOf(XConstantScoreQuery.class));
         assertThat(parsedQuery.namedFilters().containsKey("test"), equalTo(true));
@@ -1980,7 +1980,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoBoundingBoxFilter1() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_boundingbox1.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_boundingbox1.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -1995,7 +1995,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoBoundingBoxFilter2() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_boundingbox2.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_boundingbox2.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -2010,7 +2010,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoBoundingBoxFilter3() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_boundingbox3.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_boundingbox3.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -2025,7 +2025,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoBoundingBoxFilter4() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_boundingbox4.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_boundingbox4.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -2040,7 +2040,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoBoundingBoxFilter5() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_boundingbox5.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_boundingbox5.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -2055,7 +2055,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoBoundingBoxFilter6() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_boundingbox6.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_boundingbox6.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -2071,7 +2071,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoPolygonNamedFilter() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_polygon-named.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_polygon-named.json");
         ParsedQuery parsedQuery = queryParser.parse(query);
         assertThat(parsedQuery.namedFilters().containsKey("test"), equalTo(true));
         assertThat(parsedQuery.query(), instanceOf(XConstantScoreQuery.class));
@@ -2091,11 +2091,11 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoPolygonFilterParsingExceptions() throws IOException {
         String[] brokenFiles = new String[]{
-                "/org/elasticsearch/index/query/geo_polygon_exception_1.json",
-                "/org/elasticsearch/index/query/geo_polygon_exception_2.json",
-                "/org/elasticsearch/index/query/geo_polygon_exception_3.json",
-                "/org/elasticsearch/index/query/geo_polygon_exception_4.json",
-                "/org/elasticsearch/index/query/geo_polygon_exception_5.json"
+                "/org/elasticsearch/legacy/index/query/geo_polygon_exception_1.json",
+                "/org/elasticsearch/legacy/index/query/geo_polygon_exception_2.json",
+                "/org/elasticsearch/legacy/index/query/geo_polygon_exception_3.json",
+                "/org/elasticsearch/legacy/index/query/geo_polygon_exception_4.json",
+                "/org/elasticsearch/legacy/index/query/geo_polygon_exception_5.json"
         };
         for (String brokenFile : brokenFiles) {
             IndexQueryParserService queryParser = queryParser();
@@ -2113,7 +2113,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoPolygonFilter1() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_polygon1.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_polygon1.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -2131,7 +2131,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoPolygonFilter2() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_polygon2.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_polygon2.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -2149,7 +2149,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoPolygonFilter3() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_polygon3.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_polygon3.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -2167,7 +2167,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoPolygonFilter4() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geo_polygon4.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geo_polygon4.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -2185,7 +2185,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoShapeFilter() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geoShape-filter.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geoShape-filter.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(XConstantScoreQuery.class));
         XConstantScoreQuery constantScoreQuery = (XConstantScoreQuery) parsedQuery;
@@ -2195,7 +2195,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testGeoShapeQuery() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/geoShape-query.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/geoShape-query.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(ConstantScoreQuery.class));
         ConstantScoreQuery csq = (ConstantScoreQuery) parsedQuery;
@@ -2205,7 +2205,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testCommonTermsQuery1() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/commonTerms-query1.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/commonTerms-query1.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(ExtendedCommonTermsQuery.class));
         ExtendedCommonTermsQuery ectQuery = (ExtendedCommonTermsQuery) parsedQuery;
@@ -2216,7 +2216,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testCommonTermsQuery2() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/commonTerms-query2.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/commonTerms-query2.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(ExtendedCommonTermsQuery.class));
         ExtendedCommonTermsQuery ectQuery = (ExtendedCommonTermsQuery) parsedQuery;
@@ -2227,7 +2227,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testCommonTermsQuery3() throws IOException {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/commonTerms-query3.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/commonTerms-query3.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(ExtendedCommonTermsQuery.class));
         ExtendedCommonTermsQuery ectQuery = (ExtendedCommonTermsQuery) parsedQuery;
@@ -2240,7 +2240,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
         IndexQueryParserService queryParser;
         queryParser = queryParser();
         String query;
-        query = copyToStringFromClasspath("/org/elasticsearch/index/query/faulty-function-score-query.json");
+        query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/faulty-function-score-query.json");
         Query parsedQuery = queryParser.parse(query).query();
     }
 
@@ -2249,7 +2249,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
         IndexQueryParserService queryParser;
         queryParser = queryParser();
         String query;
-        query = copyToStringFromClasspath("/org/elasticsearch/index/query/function-filter-score-query.json");
+        query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/function-filter-score-query.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat((double) (parsedQuery.getBoost()), Matchers.closeTo(3.0, 1.e-7));
     }
@@ -2257,7 +2257,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testBadTypeMatchQuery() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/match-query-bad-type.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/match-query-bad-type.json");
         QueryParsingException expectedException = null;
         try {
             queryParser.parse(query).query();
@@ -2270,7 +2270,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testMultiMatchQuery() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/multiMatch-query-simple.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/multiMatch-query-simple.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(DisjunctionMaxQuery.class));
     }
@@ -2278,7 +2278,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testBadTypeMultiMatchQuery() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/multiMatch-query-bad-type.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/multiMatch-query-bad-type.json");
         QueryParsingException expectedException = null;
         try {
             queryParser.parse(query).query();
@@ -2291,7 +2291,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testMultiMatchQueryWithFieldsAsString() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/multiMatch-query-fields-as-string.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/multiMatch-query-fields-as-string.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(BooleanQuery.class));
     }
@@ -2299,7 +2299,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testSimpleQueryString() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/simple-query-string.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/simple-query-string.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(BooleanQuery.class));
     }
@@ -2307,7 +2307,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testMatchWithFuzzyTranspositions() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/match-with-fuzzy-transpositions.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/match-with-fuzzy-transpositions.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(FuzzyQuery.class));
         assertThat( ((FuzzyQuery) parsedQuery).getTranspositions(), equalTo(true));
@@ -2316,7 +2316,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testMatchWithoutFuzzyTranspositions() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/match-without-fuzzy-transpositions.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/match-without-fuzzy-transpositions.json");
         Query parsedQuery = queryParser.parse(query).query();
         assertThat(parsedQuery, instanceOf(FuzzyQuery.class));
         assertThat( ((FuzzyQuery) parsedQuery).getTranspositions(), equalTo(false));
@@ -2335,7 +2335,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
     @Test
     public void testEmptyBooleanQueryInsideFQuery() throws Exception {
         IndexQueryParserService queryParser = queryParser();
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/fquery-with-empty-bool-query.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/fquery-with-empty-bool-query.json");
         XContentParser parser = XContentHelper.createParser(new BytesArray(query));
         ParsedFilter parsedQuery = queryParser.parseInnerFilter(parser);
         assertThat(parsedQuery.filter(), instanceOf(QueryWrapperFilter.class));
@@ -2347,7 +2347,7 @@ public class SimpleIndexQueryParserTests extends ElasticsearchSingleNodeTest {
 
     // https://github.com/elasticsearch/elasticsearch/issues/6722
     public void testEmptyBoolSubClausesIsMatchAll() throws ElasticsearchException, IOException {
-        String query = copyToStringFromClasspath("/org/elasticsearch/index/query/bool-query-with-empty-clauses-for-parsing.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/index/query/bool-query-with-empty-clauses-for-parsing.json");
         IndexService indexService = createIndex("testidx", client().admin().indices().prepareCreate("testidx")
                 .addMapping("foo")
                 .addMapping("test", "_parent", "type=foo"));

@@ -42,7 +42,7 @@ public class UpdateMappingOnClusterTests extends ElasticsearchIntegrationTest {
     // checks if the setting for timestamp and size are kept even if disabled
     @Test
     public void testDisabledSizeTimestampIndexDoNotLooseMappings() throws Exception {
-        String mapping = copyToStringFromClasspath("/org/elasticsearch/index/mapper/update/default_mapping_with_disabled_root_types.json");
+        String mapping = copyToStringFromClasspath("/org/elasticsearch/legacy/index/mapper/update/default_mapping_with_disabled_root_types.json");
         prepareCreate(INDEX).addMapping(TYPE, mapping).get();
         GetMappingsResponse mappingsBeforeGreen = client().admin().indices().prepareGetMappings(INDEX).addTypes(TYPE).get();
         ensureGreen(INDEX);

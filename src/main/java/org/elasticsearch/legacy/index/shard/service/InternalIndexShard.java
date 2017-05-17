@@ -29,7 +29,6 @@ import org.apache.lucene.util.ThreadInterruptedException;
 import org.elasticsearch.legacy.ElasticsearchException;
 import org.elasticsearch.legacy.ElasticsearchIllegalArgumentException;
 import org.elasticsearch.legacy.ElasticsearchIllegalStateException;
-import org.elasticsearch.legacy.ExceptionsHelper;
 import org.elasticsearch.legacy.cluster.routing.ShardRouting;
 import org.elasticsearch.legacy.cluster.routing.ShardRoutingState;
 import org.elasticsearch.legacy.common.Booleans;

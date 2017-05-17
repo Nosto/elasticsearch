@@ -41,7 +41,7 @@ public class PatternCaptureTokenFilterTests extends ElasticsearchTokenStreamTest
     @Test
     public void testPatternCaptureTokenFilter() throws Exception {
         Index index = new Index("test");
-        Settings settings = settingsBuilder().loadFromClasspath("org/elasticsearch/index/analysis/pattern_capture.json").build();
+        Settings settings = settingsBuilder().loadFromClasspath("org/elasticsearch/legacy/index/analysis/pattern_capture.json").build();
         Injector parentInjector = new ModulesBuilder().add(new SettingsModule(settings), new EnvironmentModule(new Environment(settings)), new IndicesAnalysisModule()).createInjector();
         Injector injector = new ModulesBuilder().add(
                 new IndexSettingsModule(index, settings),

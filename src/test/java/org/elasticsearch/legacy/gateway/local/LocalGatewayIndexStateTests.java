@@ -21,7 +21,6 @@ package org.elasticsearch.legacy.gateway.local;
 
 import org.apache.lucene.util.LuceneTestCase.Slow;
 import org.elasticsearch.legacy.action.admin.cluster.health.ClusterHealthResponse;
-import org.elasticsearch.legacy.action.admin.cluster.health.ClusterHealthStatus;
 import org.elasticsearch.legacy.action.admin.cluster.state.ClusterStateResponse;
 import org.elasticsearch.legacy.action.get.GetResponse;
 import org.elasticsearch.legacy.cluster.block.ClusterBlockException;
@@ -39,7 +38,6 @@ import org.elasticsearch.legacy.test.ElasticsearchIntegrationTest;
 import org.elasticsearch.legacy.test.ElasticsearchIntegrationTest.ClusterScope;
 import org.elasticsearch.legacy.test.InternalTestCluster;
 import org.elasticsearch.legacy.test.InternalTestCluster.RestartCallback;
-import org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions;
 import org.junit.Test;
 
 import static org.elasticsearch.legacy.common.settings.ImmutableSettings.settingsBuilder;

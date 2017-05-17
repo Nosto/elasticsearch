@@ -20,9 +20,6 @@
 package org.elasticsearch.legacy.monitor;
 
 import org.elasticsearch.legacy.common.inject.AbstractModule;
-import org.elasticsearch.legacy.common.inject.Scopes;
-import org.elasticsearch.legacy.common.inject.assistedinject.FactoryProvider;
-import org.elasticsearch.legacy.common.inject.multibindings.MapBinder;
 import org.elasticsearch.legacy.common.logging.Loggers;
 import org.elasticsearch.legacy.common.settings.Settings;
 import org.elasticsearch.legacy.monitor.fs.FsProbe;
@@ -44,8 +41,6 @@ import org.elasticsearch.legacy.monitor.process.ProcessProbe;
 import org.elasticsearch.legacy.monitor.process.ProcessService;
 import org.elasticsearch.legacy.monitor.process.SigarProcessProbe;
 import org.elasticsearch.legacy.monitor.sigar.SigarService;
-
-import java.util.Map;
 
 /**
  *

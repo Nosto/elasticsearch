@@ -24,7 +24,6 @@ import com.ning.compress.lzf.LZFChunk;
 import com.ning.compress.lzf.LZFEncoder;
 import com.ning.compress.lzf.util.ChunkDecoderFactory;
 import org.apache.lucene.store.IndexInput;
-import org.apache.lucene.util.Constants;
 import org.elasticsearch.legacy.common.bytes.BytesReference;
 import org.elasticsearch.legacy.common.compress.CompressedIndexInput;
 import org.elasticsearch.legacy.common.compress.CompressedStreamInput;

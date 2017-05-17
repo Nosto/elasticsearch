@@ -48,7 +48,6 @@ import org.elasticsearch.legacy.search.suggest.completion.CompletionSuggestion;
 import org.elasticsearch.legacy.search.suggest.completion.CompletionSuggestionBuilder;
 import org.elasticsearch.legacy.search.suggest.completion.CompletionSuggestionFuzzyBuilder;
 import org.elasticsearch.legacy.test.ElasticsearchIntegrationTest;
-import org.elasticsearch.legacy.test.hamcrest.ElasticsearchAssertions;
 import org.junit.Test;
 
 import java.io.IOException;

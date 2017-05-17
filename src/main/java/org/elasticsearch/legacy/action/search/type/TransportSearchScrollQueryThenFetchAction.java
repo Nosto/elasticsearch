@@ -21,8 +21,6 @@ package org.elasticsearch.legacy.action.search.type;
 
 import com.carrotsearch.hppc.IntArrayList;
 import org.apache.lucene.search.ScoreDoc;
-import org.elasticsearch.legacy.ElasticsearchException;
-import org.elasticsearch.legacy.ExceptionsHelper;
 import org.elasticsearch.legacy.action.ActionListener;
 import org.elasticsearch.legacy.action.search.*;
 import org.elasticsearch.legacy.cluster.ClusterService;
@@ -33,7 +31,6 @@ import org.elasticsearch.legacy.common.component.AbstractComponent;
 import org.elasticsearch.legacy.common.inject.Inject;
 import org.elasticsearch.legacy.common.settings.Settings;
 import org.elasticsearch.legacy.common.util.concurrent.AtomicArray;
-import org.elasticsearch.legacy.search.SearchContextMissingException;
 import org.elasticsearch.legacy.search.action.SearchServiceListener;
 import org.elasticsearch.legacy.search.action.SearchServiceTransportAction;
 import org.elasticsearch.legacy.search.controller.SearchPhaseController;

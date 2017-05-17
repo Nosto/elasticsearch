@@ -31,7 +31,6 @@ import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexDeletionPolicy;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.TermQuery;
-import org.apache.lucene.store.AlreadyClosedException;
 import org.apache.lucene.util.LuceneTestCase.Slow;
 import org.elasticsearch.legacy.ExceptionsHelper;
 import org.elasticsearch.legacy.common.bytes.BytesArray;

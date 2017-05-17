@@ -19,8 +19,6 @@
 package org.elasticsearch.legacy.rest.action.template;
 
 import org.elasticsearch.legacy.ElasticsearchIllegalStateException;
-import org.elasticsearch.legacy.action.get.GetRequest;
-import org.elasticsearch.legacy.action.get.GetResponse;
 import org.elasticsearch.legacy.action.indexedscripts.get.GetIndexedScriptRequest;
 import org.elasticsearch.legacy.action.indexedscripts.get.GetIndexedScriptResponse;
 import org.elasticsearch.legacy.client.Client;
@@ -30,10 +28,8 @@ import org.elasticsearch.legacy.common.xcontent.*;
 import org.elasticsearch.legacy.rest.*;
 import org.elasticsearch.legacy.rest.action.support.RestResponseListener;
 import org.elasticsearch.legacy.script.ScriptService;
-import org.elasticsearch.legacy.search.aggregations.support.ValuesSource;
 
 import java.io.IOException;
-import java.util.Map;
 
 import static org.elasticsearch.legacy.rest.RestRequest.Method.GET;
 import static org.elasticsearch.legacy.rest.RestStatus.NOT_FOUND;

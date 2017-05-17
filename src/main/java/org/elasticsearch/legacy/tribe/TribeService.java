@@ -23,7 +23,6 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import org.elasticsearch.legacy.ElasticsearchException;
-import org.elasticsearch.legacy.ElasticsearchIllegalStateException;
 import org.elasticsearch.legacy.action.support.master.TransportMasterNodeReadOperationAction;
 import org.elasticsearch.legacy.cluster.*;
 import org.elasticsearch.legacy.cluster.block.ClusterBlock;
@@ -53,13 +52,12 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.CountDownLatch;
 
 /**
  * The tribe service holds a list of node clients connected to a list of tribe members, and uses their
  * cluster state events to update this local node cluster state with the merged view of it.
  * <p/>
- * The {@link #processSettings(org.elasticsearch.legacy.common.settings.Settings)} method should be called before
+ * The {@link #processSettings(Settings)} method should be called before
  * starting the node, so it will make sure to configure this current node properly with the relevant tribe node
  * settings.
  * <p/>

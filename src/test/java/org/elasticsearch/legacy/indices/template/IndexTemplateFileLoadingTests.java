@@ -53,7 +53,7 @@ public class IndexTemplateFileLoadingTests extends ElasticsearchIntegrationTest 
             templatesDir.mkdir();
 
             File dst = new File(templatesDir, "template.json");
-            String templatePath = "/org/elasticsearch/indices/template/template" + randomInt(5) + ".json";
+            String templatePath = "/org/elasticsearch/legacy/indices/template/template" + randomInt(5) + ".json";
             logger.info("Picking template path [{}]", templatePath);
             // random template, one uses the 'setting.index.number_of_shards', the other 'settings.number_of_shards'
             String template = Streams.copyToStringFromClasspath(templatePath);

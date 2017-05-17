@@ -24,7 +24,6 @@ import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.ar.ArabicNormalizationFilter;
-import org.apache.lucene.analysis.core.KeywordAnalyzer;
 import org.apache.lucene.analysis.core.WhitespaceTokenizer;
 import org.apache.lucene.analysis.fa.PersianNormalizationFilter;
 import org.apache.lucene.analysis.miscellaneous.KeywordRepeatFilter;
@@ -47,7 +46,6 @@ import org.elasticsearch.legacy.indices.analysis.IndicesAnalysisModule;
 import org.elasticsearch.legacy.indices.analysis.IndicesAnalysisService;
 import org.elasticsearch.legacy.test.ElasticsearchTestCase;
 import org.hamcrest.MatcherAssert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.*;
@@ -78,13 +76,13 @@ public class AnalysisModuleTests extends ElasticsearchTestCase {
 
     @Test
     public void testSimpleConfigurationJson() {
-        Settings settings = settingsBuilder().loadFromClasspath("org/elasticsearch/index/analysis/test1.json").build();
+        Settings settings = settingsBuilder().loadFromClasspath("org/elasticsearch/legacy/index/analysis/test1.json").build();
         testSimpleConfiguration(settings);
     }
 
     @Test
     public void testSimpleConfigurationYaml() {
-        Settings settings = settingsBuilder().loadFromClasspath("org/elasticsearch/index/analysis/test1.yml").build();
+        Settings settings = settingsBuilder().loadFromClasspath("org/elasticsearch/legacy/index/analysis/test1.yml").build();
         testSimpleConfiguration(settings);
     }
     
@@ -97,7 +95,7 @@ public class AnalysisModuleTests extends ElasticsearchTestCase {
 
     @Test
     public void testVersionedAnalyzers() throws Exception {
-        Settings settings2 = settingsBuilder().loadFromClasspath("org/elasticsearch/index/analysis/test1.yml")
+        Settings settings2 = settingsBuilder().loadFromClasspath("org/elasticsearch/legacy/index/analysis/test1.yml")
                 .put(IndexMetaData.SETTING_VERSION_CREATED, Version.V_0_90_0).build();
         AnalysisService analysisService2 = getAnalysisService(settings2);
 

@@ -20,10 +20,10 @@
 package org.elasticsearch.legacy.plugins;
 
 import com.google.common.collect.ImmutableList;
+import org.elasticsearch.legacy.common.settings.Settings;
 import org.elasticsearch.legacy.common.component.LifecycleComponent;
 import org.elasticsearch.legacy.common.inject.Module;
 import org.elasticsearch.legacy.common.settings.ImmutableSettings;
-import org.elasticsearch.legacy.common.settings.Settings;
 import org.elasticsearch.legacy.index.CloseableIndexComponent;
 
 import java.util.Collection;

@@ -291,13 +291,13 @@ public class TermVectorUnitTests extends ElasticsearchLuceneTestCase {
 
     @Test
     public void testMultiParser() throws Exception {
-        byte[] data = Streams.copyToBytesFromClasspath("/org/elasticsearch/action/termvector/multiRequest1.json");
+        byte[] data = Streams.copyToBytesFromClasspath("/org/elasticsearch/legacy/action/termvector/multiRequest1.json");
         BytesReference bytes = new BytesArray(data);
         MultiTermVectorsRequest request = new MultiTermVectorsRequest();
         request.add(new TermVectorRequest(), bytes);
         checkParsedParameters(request);
         
-        data = Streams.copyToBytesFromClasspath("/org/elasticsearch/action/termvector/multiRequest2.json");
+        data = Streams.copyToBytesFromClasspath("/org/elasticsearch/legacy/action/termvector/multiRequest2.json");
         bytes = new BytesArray(data);
         request = new MultiTermVectorsRequest();
         request.add(new TermVectorRequest(), bytes);

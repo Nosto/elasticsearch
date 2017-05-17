@@ -38,7 +38,7 @@ public class DedicatedAggregationTests extends ElasticsearchIntegrationTest {
     // https://github.com/elasticsearch/elasticsearch/issues/7240
     @Test
     public void testEmptyBoolIsMatchAll() throws IOException {
-        String query = copyToStringFromClasspath("/org/elasticsearch/search/aggregations/bucket/agg-filter-with-empty-bool.json");
+        String query = copyToStringFromClasspath("/org/elasticsearch/legacy/search/aggregations/bucket/agg-filter-with-empty-bool.json");
         createIndex("testidx");
         index("testidx", "apache", "1", "field", "text");
         index("testidx", "nginx", "2", "field", "text");

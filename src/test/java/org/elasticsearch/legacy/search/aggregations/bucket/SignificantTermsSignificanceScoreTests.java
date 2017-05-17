@@ -20,9 +20,7 @@
 package org.elasticsearch.legacy.search.aggregations.bucket;
 
 import org.elasticsearch.legacy.action.index.IndexRequestBuilder;
-import org.elasticsearch.legacy.action.search.SearchPhaseExecutionException;
 import org.elasticsearch.legacy.action.search.SearchResponse;
-import org.elasticsearch.legacy.common.ParseField;
 import org.elasticsearch.legacy.common.io.stream.StreamInput;
 import org.elasticsearch.legacy.common.io.stream.StreamOutput;
 import org.elasticsearch.legacy.common.settings.Settings;
@@ -33,7 +31,6 @@ import org.elasticsearch.legacy.index.query.FilterBuilders;
 import org.elasticsearch.legacy.index.query.QueryParsingException;
 import org.elasticsearch.legacy.plugins.AbstractPlugin;
 import org.elasticsearch.legacy.search.aggregations.Aggregation;
-import org.elasticsearch.legacy.search.aggregations.Aggregations;
 import org.elasticsearch.legacy.search.aggregations.bucket.filter.FilterAggregationBuilder;
 import org.elasticsearch.legacy.search.aggregations.bucket.filter.InternalFilter;
 import org.elasticsearch.legacy.search.aggregations.bucket.significant.SignificantTerms;
