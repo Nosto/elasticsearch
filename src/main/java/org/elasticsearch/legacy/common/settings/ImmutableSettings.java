@@ -185,8 +185,8 @@ public class ImmutableSettings implements Settings {
 
     @Override
     public Settings getComponentSettings(Class component) {
-        if (component.getName().startsWith("org.elasticsearch")) {
-            return getComponentSettings("org.elasticsearch", component);
+        if (component.getName().startsWith("org.elasticsearch.legacy")) {
+            return getComponentSettings("org.elasticsearch.legacy", component);
         }
         // not starting with org.elasticsearch, just remove the first package part (probably org/net/com)
         return getComponentSettings(component.getName().substring(0, component.getName().indexOf('.')), component);
