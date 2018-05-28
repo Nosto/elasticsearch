@@ -39,13 +39,7 @@ import org.elasticsearch.index.VersionType;
 import org.elasticsearch.index.engine.Engine;
 import org.elasticsearch.index.fieldvisitor.CustomFieldsVisitor;
 import org.elasticsearch.index.fieldvisitor.FieldsVisitor;
-import org.elasticsearch.index.mapper.DocumentMapper;
-import org.elasticsearch.index.mapper.IdFieldMapper;
-import org.elasticsearch.index.mapper.Mapper;
-import org.elasticsearch.index.mapper.MapperService;
-import org.elasticsearch.index.mapper.RoutingFieldMapper;
-import org.elasticsearch.index.mapper.SourceFieldMapper;
-import org.elasticsearch.index.mapper.Uid;
+import org.elasticsearch.index.mapper.*;
 import org.elasticsearch.index.shard.AbstractIndexShardComponent;
 import org.elasticsearch.index.shard.IndexShard;
 import org.elasticsearch.search.fetch.subphase.FetchSourceContext;
@@ -104,7 +98,7 @@ public final class ShardGetService extends AbstractIndexShardComponent {
     }
 
     public GetResult getForUpdate(String type, String id, long ifSeqNo, long ifPrimaryTerm) {
-        return get(type, id, new String[]{RoutingFieldMapper.NAME}, true,
+        return get(type, id, new String[]{RoutingFieldMapper.NAME, UpdateSourceFieldMapper.NAME}, true,
             Versions.MATCH_ANY, VersionType.INTERNAL, ifSeqNo, ifPrimaryTerm, FetchSourceContext.FETCH_SOURCE, true);
     }
 
@@ -206,7 +200,7 @@ public final class ShardGetService extends AbstractIndexShardComponent {
                 metaDataFields = new HashMap<>();
                 for (Map.Entry<String, List<Object>> entry : fieldVisitor.fields().entrySet()) {
                     if (MapperService.isMetadataField(entry.getKey())) {
-                        metaDataFields.put(entry.getKey(), new DocumentField(entry.getKey(), entry.getValue()));                        
+                        metaDataFields.put(entry.getKey(), new DocumentField(entry.getKey(), entry.getValue()));
                     } else {
                         documentFields.put(entry.getKey(), new DocumentField(entry.getKey(), entry.getValue()));
                     }
