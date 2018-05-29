@@ -55,7 +55,7 @@ public class Version {
     }
 
     public static Version fromString(String s) {
-        Matcher m = s =~ /(\d+)\.(\d+)\.(\d+)(-alpha\d+|-beta\d+|-rc\d+)?(-SNAPSHOT)?/
+        Matcher m = s =~ /(\d+)\.(\d+)\.(\d+)(-alpha\d+|-beta\d+|-rc\d+)?(-SNAPSHOT)?(-n\d+)?/
         if (m.matches() == false) {
             throw new InvalidUserDataException("Invalid version [${s}]")
         }
@@ -66,7 +66,7 @@ public class Version {
     @Override
     public String toString() {
         String snapshotStr = snapshot ? '-SNAPSHOT' : ''
-        return "${major}.${minor}.${revision}${suffix}${snapshotStr}"
+        return "${major}.${minor}.${revision}${suffix}${snapshotStr}-n1"
     }
 
     public boolean before(String compareTo) {
