@@ -20,12 +20,14 @@
 package org.elasticsearch.action.update;
 
 import org.apache.logging.log4j.Logger;
+import org.apache.lucene.util.BytesRef;
 import org.elasticsearch.ElasticsearchException;
 import org.elasticsearch.action.DocWriteResponse;
 import org.elasticsearch.action.delete.DeleteRequest;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.client.Requests;
 import org.elasticsearch.common.Nullable;
+import org.elasticsearch.common.bytes.BytesArray;
 import org.elasticsearch.common.bytes.BytesReference;
 import org.elasticsearch.common.collect.Tuple;
 import org.elasticsearch.common.component.AbstractComponent;
@@ -42,6 +44,7 @@ import org.elasticsearch.index.engine.DocumentSourceMissingException;
 import org.elasticsearch.index.get.GetResult;
 import org.elasticsearch.index.mapper.ParentFieldMapper;
 import org.elasticsearch.index.mapper.RoutingFieldMapper;
+import org.elasticsearch.index.mapper.UpdateSourceFieldMapper;
 import org.elasticsearch.index.shard.IndexShard;
 import org.elasticsearch.index.shard.ShardId;
 import org.elasticsearch.script.ExecutableScript;
@@ -72,9 +75,24 @@ public class UpdateHelper extends AbstractComponent {
      */
     public Result prepare(UpdateRequest request, IndexShard indexShard, LongSupplier nowInMillis) {
         final GetResult getResult = indexShard.getService().get(request.type(), request.id(),
-                new String[]{RoutingFieldMapper.NAME, ParentFieldMapper.NAME},
+                new String[]{RoutingFieldMapper.NAME, ParentFieldMapper.NAME, UpdateSourceFieldMapper.NAME},
                 true, request.version(), request.versionType(), FetchSourceContext.FETCH_SOURCE);
         return prepare(indexShard.shardId(), request, getResult, nowInMillis);
+    }
+
+    private static Map<String, Object> merge(Map<String, Object> sourceAsMap, DocumentField updateSourceField) {
+        if (updateSourceField == null) {
+            return sourceAsMap;
+        } else {
+            Map<String, Object> updateSourceMap = SourceLookup.sourceAsMap(new BytesArray(updateSourceField.<BytesRef>getValue()));
+            Map<String, Object> merged = new HashMap<>(sourceAsMap.size() + updateSourceMap.size());
+            merged.putAll(updateSourceMap);
+            for (Map.Entry<String, Object> entry : sourceAsMap.entrySet()) {
+                // TODO: technically we should recursively follow the maps
+                merged.put(entry.getKey(), entry.getValue());
+            }
+            return merged;
+        }
     }
 
     /**
@@ -220,7 +238,7 @@ public class UpdateHelper extends AbstractComponent {
         final XContentType updateSourceContentType = sourceAndContent.v1();
         final Map<String, Object> updatedSourceAsMap = sourceAndContent.v2();
 
-        final boolean noop = !XContentHelper.update(updatedSourceAsMap, currentRequest.sourceAsMap(), detectNoop);
+        final boolean noop = !XContentHelper.update(updatedSourceAsMap, merge(currentRequest.sourceAsMap(), getResult.field(UpdateSourceFieldMapper.NAME)), detectNoop);
 
         // We can only actually turn the update into a noop if detectNoop is true to preserve backwards compatibility and to handle cases
         // where users repopulating multi-fields or adding synonyms, etc.
@@ -262,7 +280,7 @@ public class UpdateHelper extends AbstractComponent {
         ctx.put(ContextFields.VERSION, getResult.getVersion());
         ctx.put(ContextFields.ROUTING, routing);
         ctx.put(ContextFields.PARENT, parent);
-        ctx.put(ContextFields.SOURCE, sourceAsMap);
+        ctx.put(UpdateHelper.ContextFields.SOURCE, merge(sourceAsMap, getResult.field(UpdateSourceFieldMapper.NAME)));
         ctx.put(ContextFields.NOW, nowInMillis.getAsLong());
 
         ctx = executeScript(request.script, ctx);

@@ -335,6 +335,7 @@ public class Version implements Comparable<Version> {
         if (snapshot = version.endsWith("-SNAPSHOT")) {
             version = version.substring(0, version.length() - 9);
         }
+        version = version.split("-n\\d+$")[0];
         String[] parts = version.split("[.-]");
         if (parts.length < 3 || parts.length > 4) {
             throw new IllegalArgumentException(
