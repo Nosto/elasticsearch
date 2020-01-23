@@ -22,6 +22,19 @@ apply plugin: 'nebula.maven-scm'
 
 group = 'org.elasticsearch.client'
 
+publishing {
+  repositories {
+    maven {
+      name = 'nexus'
+      url = 'https://repo.nos.to/content/repositories/elasticsearch7'
+      credentials {
+        username System.getenv("NEXUS_REPO_USER")
+        password System.getenv("NEXUS_REPO_PASSWORD")
+      }
+    }
+  }
+}
+
 dependencies {
   compile project(":server")
   compile project(":modules:transport-netty4")

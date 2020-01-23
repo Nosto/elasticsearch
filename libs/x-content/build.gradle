@@ -21,6 +21,19 @@ apply plugin: 'elasticsearch.build'
 apply plugin: 'nebula.maven-base-publish'
 apply plugin: 'nebula.maven-scm'
 
+publishing {
+    repositories {
+        maven {
+            name = 'nexus'
+            url = 'https://repo.nos.to/content/repositories/elasticsearch7'
+            credentials {
+                username System.getenv("NEXUS_REPO_USER")
+                password System.getenv("NEXUS_REPO_PASSWORD")
+            }
+        }
+    }
+}
+
 dependencies {
     compile project(':libs:elasticsearch-core')
 

@@ -17,6 +17,19 @@
  * under the License.
  */
 
+publishing {
+  repositories {
+    maven {
+      name = 'nexus'
+      url = 'https://repo.nos.to/content/repositories/elasticsearch7'
+      credentials {
+        username System.getenv("NEXUS_REPO_USER")
+        password System.getenv("NEXUS_REPO_PASSWORD")
+      }
+    }
+  }
+}
+
 dependencies {
   compile 'org.ow2.asm:asm-debug-all:5.0.4' // use asm-debug-all as asm-all is broken
   compile "org.apache.logging.log4j:log4j-api:${versions.log4j}"

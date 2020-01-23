@@ -21,6 +21,20 @@ configure(subprojects.findAll { it.parent.path == project.path }) {
   group = 'org.elasticsearch.plugin' // for modules which publish client jars
   apply plugin: 'elasticsearch.testclusters'       
   apply plugin: 'elasticsearch.esplugin'
+  apply plugin: 'nebula.maven-base-publish'
+
+  publishing {
+    repositories {
+      maven {
+        name = 'nexus'
+        url = 'https://repo.nos.to/content/repositories/elasticsearch7'
+        credentials {
+          username System.getenv("NEXUS_REPO_USER")
+          password System.getenv("NEXUS_REPO_PASSWORD")
+        }
+      }
+    }
+  }
 
   esplugin {
     // for local ES plugins, the name of the plugin is the same as the directory

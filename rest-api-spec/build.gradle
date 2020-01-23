@@ -4,3 +4,16 @@ apply plugin: 'nebula.maven-scm'
 
 test.enabled = false
 jarHell.enabled = false
+
+publishing {
+    repositories {
+        maven {
+            name = 'nexus'
+            url = 'https://repo.nos.to/content/repositories/elasticsearch7'
+            credentials {
+                username System.getenv("NEXUS_REPO_USER")
+                password System.getenv("NEXUS_REPO_PASSWORD")
+            }
+        }
+    }
+}
