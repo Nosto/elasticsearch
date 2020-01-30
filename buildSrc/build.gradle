@@ -240,7 +240,7 @@ class VersionPropertiesLoader {
     if (elasticsearch == null) {
       throw new IllegalStateException("Elasticsearch version is missing from properties.")
     }
-    if (elasticsearch.matches("[0-9]+\\.[0-9]+\\.[0-9]+") == false) {
+    if (elasticsearch.matches("[0-9]+\\.[0-9]+\\.[0-9]+-n[0-9]") == false) {
       throw new IllegalStateException(
               "Expected elasticsearch version to be numbers only of the form  X.Y.Z but it was: " +
                       elasticsearch

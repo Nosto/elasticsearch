@@ -249,7 +249,8 @@ public class Version implements Comparable<Version>, ToXContentFragment {
         if (snapshot = version.endsWith("-SNAPSHOT")) {
             version = version.substring(0, version.length() - 9);
         }
-        String[] parts = version.split("[.-]");
+        version = version.split("-n\\d+$")[0];
+       String[] parts = version.split("[.-]");
         if (parts.length < 3 || parts.length > 4) {
             throw new IllegalArgumentException(
                     "the version needs to contain major, minor, and revision, and optionally the build: " + version);
